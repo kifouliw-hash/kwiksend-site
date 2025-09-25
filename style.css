@@ -102,26 +102,49 @@ nav a:hover {
 /* Oiseaux animés */
 .birds {
   position: absolute;
-  top: 100px;
+  top: 120px;
   left: 0;
   width: 100%;
   height: 120px;
-  overflow: hidden;
+  pointer-events: none;
 }
+
 .bird {
-  width: 45px;
-  height: 35px;
+  width: 50px;
+  height: 40px;
   background: url('https://upload.wikimedia.org/wikipedia/commons/3/32/Bird_icon_black.svg') no-repeat center/contain;
   position: absolute;
-  animation: fly 14s linear infinite;
+  animation: fly 18s linear infinite;
 }
-.bird:nth-child(1) { left: -80px; top: 20px; animation-delay: 0s; }
-.bird:nth-child(2) { left: -120px; top: 50px; animation-delay: 3s; }
-.bird:nth-child(3) { left: -160px; top: 30px; animation-delay: 6s; }
+
+.bird:nth-child(1) { top: 40px; left: -60px; animation-delay: 0s; }
+.bird:nth-child(2) { top: 70px; left: -120px; animation-delay: 4s; }
+.bird:nth-child(3) { top: 20px; left: -180px; animation-delay: 8s; }
 
 @keyframes fly {
-  from { left: -150px; }
-  to { left: 110%; }
+  from { left: -100px; transform: scale(0.8); }
+  to { left: 110%; transform: scale(1.1); }
+}
+
+/* Bouton son */
+.audio-control {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 2000;
+}
+.audio-control button {
+  background: #FF6B00;
+  color: #fff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+}
+.audio-control button:hover {
+  background: #228B22;
 }
 
 /* SVG savane */
