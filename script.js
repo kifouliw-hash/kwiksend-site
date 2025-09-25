@@ -33,3 +33,20 @@ document.addEventListener("DOMContentLoaded", () => {
     playing = !playing;
   });
 });
+// Contrôle du son
+const birdSound = document.getElementById('bird-sound');
+const toggleSound = document.getElementById('toggle-sound');
+
+let isPlaying = false;
+
+toggleSound.addEventListener('click', () => {
+  if (!isPlaying) {
+    birdSound.play();
+    toggleSound.textContent = "🔇 Couper le son";
+  } else {
+    birdSound.pause();
+    toggleSound.textContent = "🔊 Activer le son";
+  }
+  isPlaying = !isPlaying;
+});
+
