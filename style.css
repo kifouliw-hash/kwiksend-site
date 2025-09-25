@@ -1,270 +1,152 @@
-/* Reset global */
+/* Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Arial, sans-serif;
 }
 
 body {
-  background: #FFF8E7; /* Beige savane */
+  background: #fff;
   color: #333;
   line-height: 1.6;
 }
 
 /* Header */
 header {
+  background: #ff6600;
+  color: white;
+  padding: 15px 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #FF6B00; /* Orange vif */
-  color: #fff;
-  padding: 15px 40px;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
 }
 
 header .logo {
-  font-size: 1.8em;
+  font-size: 1.5em;
   font-weight: bold;
-  color: #FFD93D; /* Jaune doré */
 }
 
-nav a {
-  margin-left: 20px;
-  color: #fff;
+header nav a {
+  color: white;
   text-decoration: none;
+  margin-left: 20px;
   font-weight: bold;
-  transition: color 0.3s;
-}
-nav a:hover {
-  color: #FFD93D;
 }
 
-/* Hero section */
+header nav a:hover {
+  text-decoration: underline;
+}
+
+/* Hero */
 .hero {
-  position: relative;
   text-align: center;
-  padding: 120px 20px 200px;
-  background: linear-gradient(to bottom, #FFD93D, #FF6B00);
-  color: #fff;
-  overflow: hidden;
+  padding: 60px 20px;
+  background: linear-gradient(to bottom, #ffcc00, #ff6600);
+  color: white;
 }
 
 .hero h1 {
-  font-size: 3em;
-  font-weight: bold;
+  font-size: 2.5em;
   margin-bottom: 15px;
-  text-shadow: 3px 3px 8px rgba(0,0,0,0.3);
-  color: #5C4033; /* Marron foncé */
 }
 
 .hero p {
-  font-size: 1.3em;
+  font-size: 1.2em;
   margin-bottom: 20px;
-  color: #333;
-  font-weight: bold;
 }
 
 .cta {
-  background: #228B22; /* Vert forêt */
-  color: #fff;
+  background: white;
+  color: #ff6600;
   border: none;
-  padding: 14px 30px;
-  border-radius: 10px;
-  font-size: 1.2em;
+  padding: 12px 25px;
+  border-radius: 5px;
+  font-size: 1em;
+  font-weight: bold;
   cursor: pointer;
-  transition: background 0.3s, transform 0.2s;
 }
+
 .cta:hover {
-  background: #145A14;
-  transform: scale(1.05);
+  background: #ffe6cc;
 }
 
-/* Soleil animé */
-.sun {
-  width: 140px;
-  height: 140px;
-  background: radial-gradient(circle, #FFD93D, #FF6B00);
-  border-radius: 50%;
-  position: absolute;
-  bottom: 40px;
-  left: 50%;
-  transform: translateX(-50%);
-  animation: sunrise 8s ease-in-out infinite alternate;
-}
-@keyframes sunrise {
-  from { bottom: 30px; opacity: 0.7; }
-  to { bottom: 180px; opacity: 1; }
+/* Savane */
+.savane {
+  text-align: center;
+  margin: 30px 0;
 }
 
-/* Oiseaux animés */
-.birds {
-  position: absolute;
-  top: 120px;
-  left: 0;
-  width: 100%;
-  height: 120px;
-  pointer-events: none;
+.savane-img {
+  max-width: 80%;
+  height: auto;
 }
 
-.bird {
-  width: 50px;
-  height: 40px;
-  background: url('https://upload.wikimedia.org/wikipedia/commons/3/32/Bird_icon_black.svg') no-repeat center/contain;
-  position: absolute;
-  animation: fly 18s linear infinite;
+/* Features */
+.features {
+  padding: 40px 20px;
+  background: #f9f9f9;
+  text-align: center;
 }
 
-.bird:nth-child(1) { top: 40px; left: -60px; animation-delay: 0s; }
-.bird:nth-child(2) { top: 70px; left: -120px; animation-delay: 4s; }
-.bird:nth-child(3) { top: 20px; left: -180px; animation-delay: 8s; }
+.features h2 {
+  font-size: 2em;
+  margin-bottom: 30px;
+}
 
-@keyframes fly {
-  from { left: -100px; transform: scale(0.8); }
-  to { left: 110%; transform: scale(1.1); }
+.cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.card {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  width: 220px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.card h3 {
+  margin-bottom: 10px;
+  color: #ff6600;
+}
+
+.card p {
+  font-size: 0.95em;
+  margin-bottom: 15px;
+}
+
+.card button {
+  background: #ff6600;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.card button:hover {
+  background: #e65c00;
 }
 
 /* Bouton son */
-.audio-control {
+.sound-btn {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  z-index: 2000;
-}
-.audio-control button {
-  background: #FF6B00;
-  color: #fff;
+  background: #ff6600;
+  color: white;
   border: none;
-  padding: 10px 18px;
+  padding: 12px 18px;
   border-radius: 8px;
   cursor: pointer;
-  font-size: 14px;
   font-weight: bold;
-}
-.audio-control button:hover {
-  background: #228B22;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
 }
 
-/* SVG savane */
-.savane {
-  display: block;
-  max-width: 75%;
-  height: auto;
-  margin: 70px auto 0;
-}
-
-/* Fonctionnalités */
-.features {
-  padding: 80px 20px;
-  text-align: center;
-  background: #FFF8E7;
-}
-.features h2 {
-  font-size: 2.2em;
-  margin-bottom: 40px;
-  color: #228B22; /* Vert forêt */
-  text-transform: uppercase;
-}
-.cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 25px;
-}
-.card {
-  background: #fff;
-  border: 3px solid #FF6B00;
-  border-radius: 14px;
-  padding: 25px;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
-  transition: transform 0.3s, background 0.3s, color 0.3s;
-}
-.card:hover {
-  transform: translateY(-8px);
-  background: #FFD93D;
-  color: #5C4033;
-}
-.card h3 {
-  margin-bottom: 12px;
-  color: #FF6B00;
-  font-size: 1.3em;
-}
-.card p {
-  margin-bottom: 18px;
-}
-.card button {
-  background: #228B22;
-  color: #fff;
-  border: none;
-  padding: 10px 18px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: bold;
-}
-.card button:hover {
-  background: #145A14;
-}
-
-/* Avantages */
-.advantages {
-  padding: 80px 20px;
-  background: #228B22;
-  text-align: center;
-  color: #fff;
-}
-.advantages h2 {
-  margin-bottom: 25px;
-  font-size: 2.2em;
-  color: #FFD93D;
-}
-.advantages ul {
-  list-style: none;
-  font-size: 1.2em;
-}
-.advantages li {
-  margin: 12px 0;
-}
-
-/* À propos */
-.about {
-  padding: 80px 20px;
-  text-align: center;
-  background: #FFF;
-}
-.about h2 {
-  margin-bottom: 25px;
-  font-size: 2em;
-  color: #FF6B00;
-}
-.about p {
-  margin-bottom: 18px;
-  font-size: 1.1em;
-  color: #333;
-}
-
-/* Footer */
-footer {
-  background: #5C4033;
-  color: #fff;
-  text-align: center;
-  padding: 25px;
-}
-footer a {
-  color: #FFD93D;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .hero h1 {
-    font-size: 2em;
-  }
-  .hero p {
-    font-size: 1em;
-  }
-  .savane {
-    max-width: 95%;
-  }
+.sound-btn:hover {
+  background: #e65c00;
 }
