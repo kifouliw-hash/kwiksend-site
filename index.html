@@ -7,27 +7,26 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- Header -->
   <header>
     <div class="logo">KwikSend</div>
     <nav>
       <a href="#">Accueil</a>
-      <a href="#">Fonctionnalités</a>
-      <a href="#">Avantages</a>
-      <a href="#">À propos</a>
+      <a href="#features">Fonctionnalités</a>
+      <a href="#advantages">Avantages</a>
+      <a href="#about">À propos</a>
     </nav>
   </header>
 
+  <!-- Hero -->
   <section class="hero">
     <h1>Votre argent partout tout de suite 🌍</h1>
     <p>La nouvelle façon d’envoyer et recevoir de l’argent entre l’Afrique et l’Europe.</p>
     <button class="cta">Rejoindre la liste d’attente</button>
   </section>
 
-  <section class="savane">
-    <img src="Montage-animalier.svg" alt="Animaux de la savane" class="savane-img">
-  </section>
-
-  <section class="features">
+  <!-- Fonctionnalités -->
+  <section id="features" class="features">
     <h2>Nos fonctionnalités</h2>
     <div class="cards">
       <div class="card">
@@ -53,10 +52,29 @@
     </div>
   </section>
 
-  <!-- Bouton pour activer/désactiver le son -->
-  <button id="sound-toggle" class="sound-btn">🔊 Activer le son</button>
-  <audio id="bird-sound" src="oiseau.mp3" loop></audio>
+  <!-- Avantages -->
+  <section id="advantages" class="advantages">
+    <h2>Pourquoi choisir KwikSend ?</h2>
+    <ul>
+      <li>⚡ Rapidité : vos transferts en quelques secondes.</li>
+      <li>🌍 Accessibilité : disponible en Afrique et en Europe.</li>
+      <li>🔒 Sécurité : transactions protégées et fiables.</li>
+      <li>💳 Flexibilité : virement, carte, ou retrait cash.</li>
+    </ul>
+  </section>
 
-  <script src="script.js"></script>
+  <!-- À propos -->
+  <section id="about" class="about">
+    <h2>À propos de nous</h2>
+    <p>
+      KwikSend est une plateforme de transfert d’argent digital pensée pour connecter l’Afrique et l’Europe. 
+      Notre mission : offrir une solution simple, rapide et sécurisée pour envoyer, recevoir et utiliser son argent au quotidien.
+    </p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 KwikSend - Tous droits réservés.</p>
+  </footer>
 </body>
 </html>
