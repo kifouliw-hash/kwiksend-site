@@ -3,75 +3,54 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KwikSend - Votre argent partout tout de suite</title>
+  <title>KwikSend</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Header -->
-  <header>
+  <!-- Navigation -->
+  <nav>
     <div class="logo">KwikSend</div>
-    <nav>
-      <a href="#accueil">Accueil</a>
-      <a href="#fonctionnalites">Fonctionnalités</a>
-      <a href="#avantages">Avantages</a>
-      <a href="#apropos">À propos</a>
-    </nav>
-  </header>
+    <ul>
+      <li><a href="#home">Accueil</a></li>
+      <li><a href="#features">Fonctionnalités</a></li>
+      <li><a href="#advantages">Avantages</a></li>
+      <li><a href="#about">À propos</a></li>
+    </ul>
+  </nav>
 
   <!-- Section Hero -->
-<section class="hero" id="accueil">
-  <h1>Votre argent partout tout de suite 🌍</h1>
-  <p>La nouvelle façon d’envoyer et recevoir de l’argent entre l’Afrique et l’Europe.</p>
-  <button class="cta">Rejoindre la liste d’attente</button>
+  <header class="hero" id="home">
+    <h1>Votre argent partout tout de suite 🌍</h1>
+    <p>La nouvelle façon d’envoyer et recevoir de l’argent entre l’Afrique et l’Europe.</p>
+    <button class="cta">Rejoindre la liste d’attente</button>
+  </header>
 
-  <!-- Soleil -->
-  <div class="sun"></div>
+  <!-- Scène savane avec SVG -->
+  <section class="savane">
+    <img src="Montage animalier.svg" alt="Animaux de la savane" class="savane-svg">
+    <div class="sun"></div>
+  </section>
 
-  <!-- Oiseaux animés -->
-<div class="birds">
-  <div class="bird"></div>
-  <div class="bird"></div>
-  <div class="bird"></div>
-</div>
-
-<!-- Audio caché + bouton de contrôle -->
-<div class="audio-control">
-  <button id="toggle-sound">🔊 Activer le son</button>
-  <audio id="bird-sound" loop>
-    <source src="mixkit-petits-oiseaux-chantant-dans-les-arbres-17.wav" type="audio/wav">
-  </audio>
-</div>
-  
-  <!-- Animaux SVG -->
-  <img src="Montage-animalier.svg" alt="Animaux de la savane" class="savane">
-
-  <!-- Son des oiseaux -->
-  <audio autoplay loop controls>
-    <source src="mixkit-petits-oiseaux-chantant-dans-les-arbres.wav" type="audio/wav">
-    Ton navigateur ne supporte pas l’audio.
-  </audio>
-</section>
-
-  <!-- Fonctionnalités -->
-  <section id="fonctionnalites" class="features">
+  <!-- Nos fonctionnalités -->
+  <section id="features" class="features">
     <h2>Nos fonctionnalités</h2>
-    <div class="cards">
-      <div class="card">
+    <div class="feature-list">
+      <div class="feature">
         <h3>Envoyer</h3>
         <p>Transférez de l’Afrique vers l’Europe en quelques secondes.</p>
         <button>Tester</button>
       </div>
-      <div class="card">
+      <div class="feature">
         <h3>Recevoir</h3>
         <p>Recevez directement sur votre portefeuille KwikSend.</p>
         <button>Tester</button>
       </div>
-      <div class="card">
+      <div class="feature">
         <h3>Retrait bancaire</h3>
         <p>Virez vos fonds vers n’importe quel compte bancaire.</p>
         <button>Tester</button>
       </div>
-      <div class="card">
+      <div class="feature">
         <h3>Carte & Code Cash</h3>
         <p>Payez directement ou retirez en cash via un code sécurisé.</p>
         <button>Tester</button>
@@ -79,28 +58,13 @@
     </div>
   </section>
 
-  <!-- Avantages -->
-  <section id="avantages" class="advantages">
-    <h2>Pourquoi choisir KwikSend ?</h2>
-    <ul>
-      <li>⚡ Rapidité : transactions instantanées.</li>
-      <li>🔒 Sécurité : normes anti-blanchiment et anti-fraude.</li>
-      <li>👌 Simplicité : une appli claire et intuitive.</li>
-    </ul>
-  </section>
-
-  <!-- À propos -->
-  <section id="apropos" class="about">
-    <h2>À propos</h2>
-    <p><strong>KwikSend</strong> fait partie de <strong>KwikGroupe</strong> : KwikBank, KwikInvest, KwikÉnergie, KwikTelecom.</p>
-    <p>Notre mission : centraliser, sécuriser et simplifier vos transferts d’argent.</p>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <p>© 2025 KwikSend - Votre argent partout tout de suite.</p>
-    <a href="mailto:contact@kwiksend.com">Nous contacter</a>
-  </footer>
+  <!-- Contrôle audio -->
+  <div class="audio-control">
+    <button id="toggle-sound">🔊 Activer le son</button>
+    <audio id="bird-sound" loop>
+      <source src="mixkit-petits-oiseaux-chantant-dans-les-arbres-17.wav" type="audio/wav">
+    </audio>
+  </div>
 
   <script src="script.js"></script>
 </body>
