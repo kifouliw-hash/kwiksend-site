@@ -1,7 +1,7 @@
 const sound = document.getElementById("bird-sound");
 const toggleBtn = document.getElementById("sound-toggle");
 
-// Démarre avec le son coupé
+// Par défaut, le son est en pause
 toggleBtn.textContent = "🔊 Activer le son";
 
 toggleBtn.addEventListener("click", () => {
