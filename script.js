@@ -49,4 +49,3 @@ toggleSound.addEventListener('click', () => {
   }
   isPlaying = !isPlaying;
 });
-
