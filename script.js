@@ -34,18 +34,15 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 // Contrôle du son
-const birdSound = document.getElementById('bird-sound');
-const toggleSound = document.getElementById('toggle-sound');
+const sound = document.getElementById("bird-sound");
+const toggleBtn = document.getElementById("sound-toggle");
 
-let isPlaying = false;
-
-toggleSound.addEventListener('click', () => {
-  if (!isPlaying) {
-    birdSound.play();
-    toggleSound.textContent = "🔇 Couper le son";
+toggleBtn.addEventListener("click", () => {
+  if (sound.paused) {
+    sound.play();
+    toggleBtn.textContent = "🔇 Couper le son";
   } else {
-    birdSound.pause();
-    toggleSound.textContent = "🔊 Activer le son";
+    sound.pause();
+    toggleBtn.textContent = "🔊 Activer le son";
   }
-  isPlaying = !isPlaying;
 });
