@@ -74,8 +74,8 @@
       background: #eee;
     }
 
-    /* Section fonctionnalités */
-    .features {
+    /* Fonctionnalités */
+    .features, .advantages, .about {
       padding: 40px;
       text-align: center;
     }
@@ -108,6 +108,33 @@
 
     .card button:hover {
       background: #e65c00;
+    }
+
+    /* Avantages */
+    .advantages ul {
+      list-style: none;
+      padding: 0;
+      text-align: left;
+      max-width: 600px;
+      margin: 20px auto;
+    }
+
+    .advantages li {
+      margin: 10px 0;
+      font-size: 1.1em;
+    }
+
+    .advantages img {
+      margin-top: 20px;
+      max-width: 300px;
+      border-radius: 10px;
+    }
+
+    /* À propos */
+    .about p {
+      max-width: 700px;
+      margin: 20px auto;
+      line-height: 1.6;
     }
 
     /* Bouton son */
@@ -160,7 +187,7 @@
       </circle>
     </svg>
 
-    <!-- SVG des animaux (intégré) -->
+    <!-- SVG des animaux -->
     <div style="position:absolute; bottom:0; width:100%; z-index:1;">
       <img src="Animal-Montage.svg" alt="Animaux de la savane" style="width:100%; height:auto;">
     </div>
@@ -198,6 +225,29 @@
         <button>Tester</button>
       </div>
     </div>
+  </section>
+
+  <!-- Avantages -->
+  <section id="avantages" class="advantages">
+    <h2>Pourquoi choisir KwikSend ?</h2>
+    <ul>
+      <li>⚡ <strong>Rapidité</strong> : transactions instantanées.</li>
+      <li>🔒 <strong>Sécurité</strong> : normes anti-blanchiment et anti-fraude.</li>
+      <li>👌 <strong>Simplicité</strong> : une appli claire et intuitive.</li>
+    </ul>
+    <img src="8b255ac5.png" alt="Illustration de KwikSend">
+  </section>
+
+  <!-- À propos -->
+  <section id="apropos" class="about">
+    <h2>À propos</h2>
+    <p>
+      KwikSend fait partie de <strong>KwikGroupe</strong> : KwikBank, KwikInvest, KwikÉnergie, KwikTelecom.  
+      Notre mission : centraliser, sécuriser et simplifier vos transferts d’argent.  
+    </p>
+    <p>
+      🚀 Avec KwikSend, nous voulons donner aux populations africaines et européennes un accès fluide aux services financiers modernes, en rapprochant la technologie de la réalité du terrain.
+    </p>
   </section>
 
   <!-- Son des oiseaux -->
