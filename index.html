@@ -1,18 +1,38 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KwikSend - Votre argent partout tout de suite</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KwikSend - Hero avec SVG réaliste</title>
   <style>
-    /* HERO personnalisé */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    header {
+      background: #ff6600;
+      color: white;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header nav a {
+      color: white;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    header nav a:hover {
+      text-decoration: underline;
+    }
+
     .hero {
       position: relative;
       height: 500px;
-      text-align: center;
-      color: white;
       overflow: hidden;
+      color: white;
+      text-align: center;
     }
 
     .hero-bg {
@@ -23,18 +43,15 @@
       height: 100%;
       z-index: 0;
     }
-
     .hero-content {
       position: relative;
       z-index: 2;
-      top: 180px;
+      top: 160px;
     }
-
     .hero h1 {
       font-size: 2.8em;
       margin-bottom: 15px;
     }
-
     .hero button {
       background: #fff;
       color: #ff6600;
@@ -45,14 +62,25 @@
       font-size: 1.1em;
       transition: 0.3s;
     }
-
     .hero button:hover {
       background: #eee;
+    }
+
+    #toggleSound {
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      padding: 8px 12px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      background: #ff6600;
+      color: #fff;
+      z-index: 10;
     }
   </style>
 </head>
 <body>
-  <!-- Header -->
   <header>
     <div class="logo">KwikSend</div>
     <nav>
@@ -63,18 +91,16 @@
     </nav>
   </header>
 
-  <!-- Hero Section Africaine -->
   <section id="accueil" class="hero">
     <svg viewBox="0 0 1200 500" xmlns="http://www.w3.org/2000/svg" class="hero-bg">
-      <!-- Dégradé ciel -->
       <defs>
         <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#ffcc33"/>
-          <stop offset="100%" stop-color="#ff3300"/>
+          <stop offset="0%" stop-color="#ffcc33" />
+          <stop offset="100%" stop-color="#ff3300" />
         </linearGradient>
         <radialGradient id="sun" cx="50%" cy="70%" r="30%">
-          <stop offset="0%" stop-color="#ffdd33" stop-opacity="1"/>
-          <stop offset="100%" stop-color="#ff6600" stop-opacity="0.8"/>
+          <stop offset="0%" stop-color="#ffdd33" stop-opacity="1" />
+          <stop offset="100%" stop-color="#ff6600" stop-opacity="0.8" />
         </radialGradient>
       </defs>
 
@@ -82,50 +108,80 @@
       <rect width="1200" height="500" fill="url(#sky)" />
 
       <!-- Soleil animé -->
-      <circle cx="600" cy="300" r="80" fill="url(#sun)">
-        <animate attributeName="cy" from="500" to="300" dur="4s" fill="freeze" />
+      <circle cx="600" cy="450" r="80" fill="url(#sun)">
+        <animate attributeName="cy" from="600" to="300" dur="4s" fill="freeze" />
       </circle>
 
-      <!-- Oiseaux -->
+      <!-- Oiseaux réalistes (petits chemins) -->
       <g fill="black">
-        <path d="M10 20 Q 20 10 30 20 Q 20 15 10 20 Z">
-          <animateTransform attributeName="transform" type="translate" from="-100 50" to="1300 50" dur="15s" repeatCount="indefinite"/>
+        <path d="M0,0 C20,-15 40,-15 60,0" transform="translate(-100,60)">
+          <animateTransform attributeName="transform" type="translate"
+            from="-200,60" to="1200,60" dur="12s" repeatCount="indefinite" />
         </path>
       </g>
       <g fill="black">
-        <path d="M10 20 Q 20 10 30 20 Q 20 15 10 20 Z">
-          <animateTransform attributeName="transform" type="translate" from="-200 120" to="1400 120" dur="20s" repeatCount="indefinite"/>
+        <path d="M0,0 C20,-15 40,-15 60,0" transform="translate(-150,120)">
+          <animateTransform attributeName="transform" type="translate"
+            from="-300,120" to="1200,120" dur="16s" repeatCount="indefinite" />
         </path>
       </g>
 
-      <!-- Sol savane -->
-      <rect y="400" width="1200" height="100" fill="#222"/>
+      <!-- Sol / silhouette savane -->
+      <rect y="380" width="1200" height="120" fill="#222" />
 
-      <!-- Girafe -->
-      <path d="M200 400 L210 280 L215 220 L220 280 L225 400 Z" fill="#000"/>
-      <circle cx="217" cy="210" r="10" fill="#000"/>
+      <!-- Silhouettes réalistes (exemples) -->
+      <!-- Girafe silhouette détaillée -->
+      <path d="M140 380 L150 240 L155 200 L160 240 L170 380 Z" fill="black" />
+      <circle cx="157" cy="190" r="12" fill="black" />
 
       <!-- Arbre acacia -->
-      <rect x="400" y="300" width="10" height="100" fill="#000"/>
-      <ellipse cx="405" cy="280" rx="80" ry="20" fill="#000"/>
-      <ellipse cx="405" cy="260" rx="100" ry="20" fill="#000"/>
+      <path d="M350 300 L 355 380 L360 300 Z" fill="black" />
+      <ellipse cx="355" cy="280" rx="100" ry="25" fill="black" />
+      <ellipse cx="355" cy="260" rx="120" ry="25" fill="black" />
 
-      <!-- Éléphant -->
-      <ellipse cx="700" cy="360" rx="60" ry="40" fill="#000"/> <!-- corps -->
-      <circle cx="650" cy="340" r="25" fill="#000"/> <!-- tête -->
-      <rect x="740" y="360" width="20" height="40" fill="#000"/> <!-- patte -->
-      <rect x="680" y="360" width="20" height="40" fill="#000"/> <!-- patte -->
-      <path d="M630 340 Q 610 350 620 370" stroke="#000" stroke-width="10" fill="none"/> <!-- trompe -->
-      <circle cx="640" cy="335" r="5" fill="white"/> <!-- oeil -->
+      <!-- Éléphant silhouette réaliste -->
+      <path d="M600 380
+               c -60 0 -80 -40 -80 -60
+               c 0 -20 15 -40 40 -40
+               c 10 0 20 5 25 10
+               c 5 -15 25 -15 30 0
+               c 5 10 0 20 -5 30
+               c 20 0 40 10 40 30
+               c 0 20 -15 30 -50 30
+               Z" fill="black" />
+
     </svg>
 
-    <!-- Contenu Hero -->
     <div class="hero-content">
       <h1>Votre argent partout tout de suite 🌍</h1>
       <p>La nouvelle façon d’envoyer et recevoir de l’argent entre l’Afrique et l’Europe.</p>
       <button onclick="window.location.href='#contact'">Rejoindre la liste d’attente</button>
     </div>
   </section>
+
+  <audio id="birds-sound" autoplay loop>
+    <source src="https://www.fesliyanstudios.com/play-mp3/387" type="audio/mpeg" />
+    Votre navigateur ne supporte pas l'audio.
+  </audio>
+  <button id="toggleSound">🔊 Couper le son</button>
+
+  <script>
+    const audio = document.getElementById("birds-sound");
+    audio.volume = 0.2;
+
+    const toggleBtn = document.getElementById("toggleSound");
+    let playing = true;
+    toggleBtn.addEventListener("click", () => {
+      if (playing) {
+        audio.pause();
+        toggleBtn.innerText = "🔇 Remettre le son";
+      } else {
+        audio.play();
+        toggleBtn.innerText = "🔊 Couper le son";
+      }
+      playing = !playing;
+    });
+  </script>
 
   <!-- Fonctionnalités -->
   <section id="fonctionnalites" class="features">
