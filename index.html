@@ -5,18 +5,56 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>KwikSend - Votre argent partout tout de suite</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* HERO personnalisé */
+    .hero {
+      position: relative;
+      height: 500px;
+      text-align: center;
+      color: white;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      top: 180px;
+    }
+
+    .hero h1 {
+      font-size: 2.8em;
+      margin-bottom: 15px;
+    }
+
+    .hero button {
+      background: #fff;
+      color: #ff6600;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1.1em;
+      transition: 0.3s;
+    }
+
+    .hero button:hover {
+      background: #eee;
+    }
+  </style>
 </head>
 <body>
-  <audio id="birds-sound" autoplay loop>
-  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-  Votre navigateur ne supporte pas l'audio.
-</audio>
   <!-- Header -->
   <header>
-    <div class="logo">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/African_Sun_Logo.svg" alt="KwikSend Logo">
-      <span>KwikSend</span>
-    </div>
+    <div class="logo">KwikSend</div>
     <nav>
       <a href="#accueil">Accueil</a>
       <a href="#fonctionnalites">Fonctionnalités</a>
@@ -25,58 +63,69 @@
     </nav>
   </header>
 
- <!-- Hero Section Africaine -->
-<section id="accueil" class="hero">
-  <svg viewBox="0 0 1200 500" xmlns="http://www.w3.org/2000/svg" class="hero-bg">
-    <!-- Dégradé ciel -->
-    <defs>
-      <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0%" stop-color="#ff9900"/>
-        <stop offset="100%" stop-color="#ff3300"/>
-      </linearGradient>
-      <radialGradient id="sun" cx="50%" cy="70%" r="30%">
-        <stop offset="0%" stop-color="#ffdd33" stop-opacity="1"/>
-        <stop offset="100%" stop-color="#ff6600" stop-opacity="0.8"/>
-      </radialGradient>
-    </defs>
+  <!-- Hero Section Africaine -->
+  <section id="accueil" class="hero">
+    <svg viewBox="0 0 1200 500" xmlns="http://www.w3.org/2000/svg" class="hero-bg">
+      <!-- Dégradé ciel -->
+      <defs>
+        <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#ffcc33"/>
+          <stop offset="100%" stop-color="#ff3300"/>
+        </linearGradient>
+        <radialGradient id="sun" cx="50%" cy="70%" r="30%">
+          <stop offset="0%" stop-color="#ffdd33" stop-opacity="1"/>
+          <stop offset="100%" stop-color="#ff6600" stop-opacity="0.8"/>
+        </radialGradient>
+      </defs>
 
-    <!-- Ciel -->
-    <rect width="1200" height="500" fill="url(#sky)" />
+      <!-- Ciel -->
+      <rect width="1200" height="500" fill="url(#sky)" />
 
-    <!-- Soleil -->
-    <circle cx="600" cy="300" r="80" fill="url(#sun)">
-      <animate attributeName="cy" from="500" to="300" dur="4s" fill="freeze" />
-    </circle>
+      <!-- Soleil animé -->
+      <circle cx="600" cy="300" r="80" fill="url(#sun)">
+        <animate attributeName="cy" from="500" to="300" dur="4s" fill="freeze" />
+      </circle>
 
-    <!-- Oiseaux -->
-    <g class="bird" fill="black">
-      <path d="M10 20 Q 20 10 30 20 Q 20 15 10 20 Z">
-        <animateTransform attributeName="transform" attributeType="XML" type="translate" from="-100 50" to="1300 50" dur="15s" repeatCount="indefinite"/>
-      </path>
-    </g>
-    <g class="bird" fill="black">
-      <path d="M10 20 Q 20 10 30 20 Q 20 15 10 20 Z">
-        <animateTransform attributeName="transform" attributeType="XML" type="translate" from="-200 120" to="1400 120" dur="20s" repeatCount="indefinite"/>
-      </path>
-    </g>
+      <!-- Oiseaux -->
+      <g fill="black">
+        <path d="M10 20 Q 20 10 30 20 Q 20 15 10 20 Z">
+          <animateTransform attributeName="transform" type="translate" from="-100 50" to="1300 50" dur="15s" repeatCount="indefinite"/>
+        </path>
+      </g>
+      <g fill="black">
+        <path d="M10 20 Q 20 10 30 20 Q 20 15 10 20 Z">
+          <animateTransform attributeName="transform" type="translate" from="-200 120" to="1400 120" dur="20s" repeatCount="indefinite"/>
+        </path>
+      </g>
 
-    <!-- Silhouette savane -->
-    <rect y="400" width="1200" height="100" fill="#222"/>
-    <!-- Girafe -->
-    <path d="M200 400 L210 300 L215 200 L220 300 L225 400 Z" fill="#000"/>
-    <!-- Arbre acacia -->
-    <path d="M400 400 L405 300 L410 400 Z" fill="#000"/>
-    <ellipse cx="405" cy="280" rx="80" ry="25" fill="#000"/>
-    <ellipse cx="405" cy="260" rx="100" ry="25" fill="#000"/>
-  </svg>
+      <!-- Sol savane -->
+      <rect y="400" width="1200" height="100" fill="#222"/>
 
-  <!-- Contenu Hero -->
-  <div class="hero-content">
-    <h1>Votre argent partout tout de suite 🌍</h1>
-    <p>La nouvelle façon d’envoyer et recevoir de l’argent entre l’Afrique et l’Europe.</p>
-    <button onclick="window.location.href='#contact'">Rejoindre la liste d’attente</button>
-  </div>
-</section>
+      <!-- Girafe -->
+      <path d="M200 400 L210 280 L215 220 L220 280 L225 400 Z" fill="#000"/>
+      <circle cx="217" cy="210" r="10" fill="#000"/>
+
+      <!-- Arbre acacia -->
+      <rect x="400" y="300" width="10" height="100" fill="#000"/>
+      <ellipse cx="405" cy="280" rx="80" ry="20" fill="#000"/>
+      <ellipse cx="405" cy="260" rx="100" ry="20" fill="#000"/>
+
+      <!-- Éléphant -->
+      <ellipse cx="700" cy="360" rx="60" ry="40" fill="#000"/> <!-- corps -->
+      <circle cx="650" cy="340" r="25" fill="#000"/> <!-- tête -->
+      <rect x="740" y="360" width="20" height="40" fill="#000"/> <!-- patte -->
+      <rect x="680" y="360" width="20" height="40" fill="#000"/> <!-- patte -->
+      <path d="M630 340 Q 610 350 620 370" stroke="#000" stroke-width="10" fill="none"/> <!-- trompe -->
+      <circle cx="640" cy="335" r="5" fill="white"/> <!-- oeil -->
+    </svg>
+
+    <!-- Contenu Hero -->
+    <div class="hero-content">
+      <h1>Votre argent partout tout de suite 🌍</h1>
+      <p>La nouvelle façon d’envoyer et recevoir de l’argent entre l’Afrique et l’Europe.</p>
+      <button onclick="window.location.href='#contact'">Rejoindre la liste d’attente</button>
+    </div>
+  </section>
 
   <!-- Fonctionnalités -->
   <section id="fonctionnalites" class="features">
@@ -85,22 +134,18 @@
       <div class="card">
         <h3>Envoyer</h3>
         <p>Transférez de l’Afrique vers l’Europe en quelques secondes.</p>
-        <a href="envoyer.html" class="btn">Tester</a>
       </div>
       <div class="card">
         <h3>Recevoir</h3>
         <p>Recevez directement sur votre portefeuille KwikSend.</p>
-        <a href="recevoir.html" class="btn">Tester</a>
       </div>
       <div class="card">
         <h3>Retrait bancaire</h3>
         <p>Virez vos fonds vers n’importe quel compte bancaire.</p>
-        <a href="retrait.html" class="btn">Tester</a>
       </div>
       <div class="card">
         <h3>Carte & Code Cash</h3>
         <p>Payez directement ou retirez en cash via un code sécurisé.</p>
-        <a href="carte.html" class="btn">Tester</a>
       </div>
     </div>
   </section>
