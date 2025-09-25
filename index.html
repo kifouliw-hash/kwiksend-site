@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>KwikSend - Hero avec SVG réaliste</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KwikSend - Votre argent partout tout de suite</title>
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
     }
+
     header {
       background: #ff6600;
       color: white;
@@ -17,22 +18,25 @@
       justify-content: space-between;
       align-items: center;
     }
+
     header nav a {
       color: white;
       margin: 0 10px;
       text-decoration: none;
       font-weight: bold;
     }
+
     header nav a:hover {
       text-decoration: underline;
     }
 
+    /* Hero */
     .hero {
       position: relative;
       height: 500px;
-      overflow: hidden;
-      color: white;
       text-align: center;
+      color: white;
+      overflow: hidden;
     }
 
     .hero-bg {
@@ -43,15 +47,18 @@
       height: 100%;
       z-index: 0;
     }
+
     .hero-content {
       position: relative;
       z-index: 2;
       top: 160px;
     }
+
     .hero h1 {
       font-size: 2.8em;
       margin-bottom: 15px;
     }
+
     .hero button {
       background: #fff;
       color: #ff6600;
@@ -62,10 +69,48 @@
       font-size: 1.1em;
       transition: 0.3s;
     }
+
     .hero button:hover {
       background: #eee;
     }
 
+    /* Section fonctionnalités */
+    .features {
+      padding: 40px;
+      text-align: center;
+    }
+
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .card {
+      background: #f5f5f5;
+      padding: 20px;
+      border-radius: 8px;
+      width: 220px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .card button {
+      margin-top: 10px;
+      background: #ff6600;
+      color: #fff;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .card button:hover {
+      background: #e65c00;
+    }
+
+    /* Bouton son */
     #toggleSound {
       position: fixed;
       bottom: 10px;
@@ -81,6 +126,7 @@
   </style>
 </head>
 <body>
+  <!-- Header -->
   <header>
     <div class="logo">KwikSend</div>
     <nav>
@@ -91,16 +137,17 @@
     </nav>
   </header>
 
+  <!-- Hero -->
   <section id="accueil" class="hero">
     <svg viewBox="0 0 1200 500" xmlns="http://www.w3.org/2000/svg" class="hero-bg">
       <defs>
         <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#ffcc33" />
-          <stop offset="100%" stop-color="#ff3300" />
+          <stop offset="0%" stop-color="#ffcc33"/>
+          <stop offset="100%" stop-color="#ff3300"/>
         </linearGradient>
         <radialGradient id="sun" cx="50%" cy="70%" r="30%">
-          <stop offset="0%" stop-color="#ffdd33" stop-opacity="1" />
-          <stop offset="100%" stop-color="#ff6600" stop-opacity="0.8" />
+          <stop offset="0%" stop-color="#ffdd33" stop-opacity="1"/>
+          <stop offset="100%" stop-color="#ff6600" stop-opacity="0.8"/>
         </radialGradient>
       </defs>
 
@@ -111,47 +158,14 @@
       <circle cx="600" cy="450" r="80" fill="url(#sun)">
         <animate attributeName="cy" from="600" to="300" dur="4s" fill="freeze" />
       </circle>
-
-      <!-- Oiseaux réalistes (petits chemins) -->
-      <g fill="black">
-        <path d="M0,0 C20,-15 40,-15 60,0" transform="translate(-100,60)">
-          <animateTransform attributeName="transform" type="translate"
-            from="-200,60" to="1200,60" dur="12s" repeatCount="indefinite" />
-        </path>
-      </g>
-      <g fill="black">
-        <path d="M0,0 C20,-15 40,-15 60,0" transform="translate(-150,120)">
-          <animateTransform attributeName="transform" type="translate"
-            from="-300,120" to="1200,120" dur="16s" repeatCount="indefinite" />
-        </path>
-      </g>
-
-      <!-- Sol / silhouette savane -->
-      <rect y="380" width="1200" height="120" fill="#222" />
-
-      <!-- Silhouettes réalistes (exemples) -->
-      <!-- Girafe silhouette détaillée -->
-      <path d="M140 380 L150 240 L155 200 L160 240 L170 380 Z" fill="black" />
-      <circle cx="157" cy="190" r="12" fill="black" />
-
-      <!-- Arbre acacia -->
-      <path d="M350 300 L 355 380 L360 300 Z" fill="black" />
-      <ellipse cx="355" cy="280" rx="100" ry="25" fill="black" />
-      <ellipse cx="355" cy="260" rx="120" ry="25" fill="black" />
-
-      <!-- Éléphant silhouette réaliste -->
-      <path d="M600 380
-               c -60 0 -80 -40 -80 -60
-               c 0 -20 15 -40 40 -40
-               c 10 0 20 5 25 10
-               c 5 -15 25 -15 30 0
-               c 5 10 0 20 -5 30
-               c 20 0 40 10 40 30
-               c 0 20 -15 30 -50 30
-               Z" fill="black" />
-
     </svg>
 
+    <!-- SVG des animaux (intégré) -->
+    <div style="position:absolute; bottom:0; width:100%; z-index:1;">
+      <img src="Animal-Montage.svg" alt="Animaux de la savane" style="width:100%; height:auto;">
+    </div>
+
+    <!-- Texte -->
     <div class="hero-content">
       <h1>Votre argent partout tout de suite 🌍</h1>
       <p>La nouvelle façon d’envoyer et recevoir de l’argent entre l’Afrique et l’Europe.</p>
@@ -159,8 +173,36 @@
     </div>
   </section>
 
+  <!-- Fonctionnalités -->
+  <section id="fonctionnalites" class="features">
+    <h2>Nos fonctionnalités</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Envoyer</h3>
+        <p>Transférez de l’Afrique vers l’Europe en quelques secondes.</p>
+        <button>Tester</button>
+      </div>
+      <div class="card">
+        <h3>Recevoir</h3>
+        <p>Recevez directement sur votre portefeuille KwikSend.</p>
+        <button>Tester</button>
+      </div>
+      <div class="card">
+        <h3>Retrait bancaire</h3>
+        <p>Virez vos fonds vers n’importe quel compte bancaire.</p>
+        <button>Tester</button>
+      </div>
+      <div class="card">
+        <h3>Carte & Code Cash</h3>
+        <p>Payez directement ou retirez en cash via un code sécurisé.</p>
+        <button>Tester</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Son des oiseaux -->
   <audio id="birds-sound" autoplay loop>
-    <source src="https://www.fesliyanstudios.com/play-mp3/387" type="audio/mpeg" />
+    <source src="mixkit-little-birds-singing-in-the-trees-17.wav" type="audio/wav">
     Votre navigateur ne supporte pas l'audio.
   </audio>
   <button id="toggleSound">🔊 Couper le son</button>
@@ -182,53 +224,5 @@
       playing = !playing;
     });
   </script>
-
-  <!-- Fonctionnalités -->
-  <section id="fonctionnalites" class="features">
-    <h2>Nos fonctionnalités</h2>
-    <div class="cards">
-      <div class="card">
-        <h3>Envoyer</h3>
-        <p>Transférez de l’Afrique vers l’Europe en quelques secondes.</p>
-      </div>
-      <div class="card">
-        <h3>Recevoir</h3>
-        <p>Recevez directement sur votre portefeuille KwikSend.</p>
-      </div>
-      <div class="card">
-        <h3>Retrait bancaire</h3>
-        <p>Virez vos fonds vers n’importe quel compte bancaire.</p>
-      </div>
-      <div class="card">
-        <h3>Carte & Code Cash</h3>
-        <p>Payez directement ou retirez en cash via un code sécurisé.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Avantages -->
-  <section id="avantages" class="advantages">
-    <h2>Pourquoi choisir KwikSend ?</h2>
-    <ul>
-      <li>⚡ Rapidité : transactions instantanées.</li>
-      <li>🔒 Sécurité : normes anti-blanchiment et anti-fraude.</li>
-      <li>👌 Simplicité : une appli claire et intuitive.</li>
-    </ul>
-  </section>
-
-  <!-- À propos -->
-  <section id="apropos" class="about">
-    <h2>À propos</h2>
-    <p>KwikSend fait partie de <strong>KwikGroupe</strong> : KwikBank, KwikInvest, KwikÉnergie, KwikTelecom.</p>
-    <p>Notre mission : centraliser, sécuriser et simplifier vos transferts d’argent.</p>
-  </section>
-
-  <!-- Footer -->
-  <footer id="contact">
-    <p>© 2025 KwikSend - Votre argent partout tout de suite.</p>
-    <p><a href="mailto:contact@kwiksend.com">Nous contacter</a></p>
-  </footer>
-
-  <script src="script.js"></script>
 </body>
 </html>
