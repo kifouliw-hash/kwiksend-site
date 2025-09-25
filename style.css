@@ -210,3 +210,46 @@ footer {
   text-align: center;
   padding: 20px;
 }
+.hero {
+  position: relative;
+  height: 500px;
+  text-align: center;
+  color: white;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  top: 180px;
+}
+
+.hero h1 {
+  font-size: 2.8em;
+  margin-bottom: 15px;
+}
+
+.hero button {
+  background: #fff;
+  color: #ff6600;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.1em;
+  transition: 0.3s;
+}
+
+.hero button:hover {
+  background: #eee;
+}
+
