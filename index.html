@@ -4,63 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>KwikSend - Votre argent partout tout de suite</title>
-  <style>
-    body { margin: 0; font-family: Arial, sans-serif; }
-
-    header {
-      background: #ff6600;
-      color: white;
-      padding: 15px 30px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    header nav a {
-      color: white; margin: 0 10px; text-decoration: none; font-weight: bold;
-    }
-    header nav a:hover { text-decoration: underline; }
-
-    /* Hero */
-    .hero {
-      position: relative; height: 500px; text-align: center; color: white; overflow: hidden;
-    }
-    .hero-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; }
-    .hero-content { position: relative; z-index: 2; top: 160px; }
-    .hero h1 { font-size: 2.8em; margin-bottom: 15px; }
-    .hero button {
-      background: #fff; color: #ff6600; border: none; padding: 12px 25px;
-      border-radius: 5px; cursor: pointer; font-size: 1.1em; transition: 0.3s;
-    }
-    .hero button:hover { background: #eee; }
-
-    /* Sections */
-    .features, .advantages, .about { padding: 40px; text-align: center; }
-    .cards { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-top: 20px; }
-    .card {
-      background: #f5f5f5; padding: 20px; border-radius: 8px; width: 220px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    .card button {
-      margin-top: 10px; background: #ff6600; color: #fff; border: none;
-      padding: 8px 15px; border-radius: 5px; cursor: pointer;
-    }
-    .card button:hover { background: #e65c00; }
-
-    /* Avantages */
-    .advantages ul { list-style: none; padding: 0; text-align: left; max-width: 600px; margin: 20px auto; }
-    .advantages li { margin: 10px 0; font-size: 1.1em; }
-    .advantages img { margin-top: 20px; max-width: 300px; border-radius: 10px; }
-
-    /* À propos */
-    .about p { max-width: 700px; margin: 20px auto; line-height: 1.6; }
-
-    /* Son */
-    #toggleSound {
-      position: fixed; bottom: 10px; right: 10px; padding: 8px 12px;
-      border: none; border-radius: 5px; cursor: pointer;
-      background: #ff6600; color: #fff; z-index: 10;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <!-- Header -->
@@ -74,35 +18,23 @@
     </nav>
   </header>
 
-  <!-- Hero -->
-  <section id="accueil" class="hero">
-    <svg viewBox="0 0 1200 500" xmlns="http://www.w3.org/2000/svg" class="hero-bg">
-      <defs>
-        <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#ffcc33"/>
-          <stop offset="100%" stop-color="#ff3300"/>
-        </linearGradient>
-        <radialGradient id="sun" cx="50%" cy="70%" r="30%">
-          <stop offset="0%" stop-color="#ffdd33" stop-opacity="1"/>
-          <stop offset="100%" stop-color="#ff6600" stop-opacity="0.8"/>
-        </radialGradient>
-      </defs>
-      <rect width="1200" height="500" fill="url(#sky)" />
-      <circle cx="600" cy="450" r="80" fill="url(#sun)">
-        <animate attributeName="cy" from="600" to="300" dur="4s" fill="freeze" />
-      </circle>
-    </svg>
+  <!-- Section Hero -->
+  <section class="hero" id="accueil">
+    <h1>Votre argent partout tout de suite 🌍</h1>
+    <p>La nouvelle façon d’envoyer et recevoir de l’argent entre l’Afrique et l’Europe.</p>
+    <button class="cta">Rejoindre la liste d’attente</button>
 
-    <!-- SVG animaux -->
-    <div style="position:absolute; bottom:0; width:100%; z-index:1;">
-      <img src="Animal-Montage.svg" alt="Animaux de la savane" style="width:100%; height:auto;">
-    </div>
+    <!-- Soleil -->
+    <div class="sun"></div>
 
-    <div class="hero-content">
-      <h1>Votre argent partout tout de suite 🌍</h1>
-      <p>La nouvelle façon d’envoyer et recevoir de l’argent entre l’Afrique et l’Europe.</p>
-      <button onclick="window.location.href='#contact'">Rejoindre la liste d’attente</button>
-    </div>
+    <!-- Animaux SVG -->
+    <img src="Montage-animalier.svg" alt="Animaux de la savane" class="savane">
+
+    <!-- Son des oiseaux -->
+    <audio autoplay loop controls>
+      <source src="mixkit-petits-oiseaux-chantant-dans-les-arbres.wav" type="audio/wav">
+      Ton navigateur ne supporte pas l’audio.
+    </audio>
   </section>
 
   <!-- Fonctionnalités -->
@@ -112,22 +44,22 @@
       <div class="card">
         <h3>Envoyer</h3>
         <p>Transférez de l’Afrique vers l’Europe en quelques secondes.</p>
-        <button onclick="window.location.href='envoyer.html'">Tester</button>
+        <button>Tester</button>
       </div>
       <div class="card">
         <h3>Recevoir</h3>
         <p>Recevez directement sur votre portefeuille KwikSend.</p>
-        <button onclick="window.location.href='recevoir.html'">Tester</button>
+        <button>Tester</button>
       </div>
       <div class="card">
         <h3>Retrait bancaire</h3>
         <p>Virez vos fonds vers n’importe quel compte bancaire.</p>
-        <button onclick="window.location.href='retrait.html'">Tester</button>
+        <button>Tester</button>
       </div>
       <div class="card">
         <h3>Carte & Code Cash</h3>
         <p>Payez directement ou retirez en cash via un code sécurisé.</p>
-        <button onclick="window.location.href='carte.html'">Tester</button>
+        <button>Tester</button>
       </div>
     </div>
   </section>
@@ -136,48 +68,25 @@
   <section id="avantages" class="advantages">
     <h2>Pourquoi choisir KwikSend ?</h2>
     <ul>
-      <li>⚡ <strong>Rapidité</strong> : transactions instantanées.</li>
-      <li>🔒 <strong>Sécurité</strong> : normes anti-blanchiment et anti-fraude.</li>
-      <li>👌 <strong>Simplicité</strong> : une appli claire et intuitive.</li>
+      <li>⚡ Rapidité : transactions instantanées.</li>
+      <li>🔒 Sécurité : normes anti-blanchiment et anti-fraude.</li>
+      <li>👌 Simplicité : une appli claire et intuitive.</li>
     </ul>
-    <img src="8b255ac5.png" alt="Illustration de KwikSend">
   </section>
 
   <!-- À propos -->
   <section id="apropos" class="about">
     <h2>À propos</h2>
-    <p>
-      KwikSend fait partie de <strong>KwikGroupe</strong> : KwikBank, KwikInvest, KwikÉnergie, KwikTelecom.  
-      Notre mission : centraliser, sécuriser et simplifier vos transferts d’argent.  
-    </p>
-    <p>
-      🚀 Avec KwikSend, nous voulons donner aux populations africaines et européennes un accès fluide aux services financiers modernes, en rapprochant la technologie de la réalité du terrain.
-    </p>
+    <p><strong>KwikSend</strong> fait partie de <strong>KwikGroupe</strong> : KwikBank, KwikInvest, KwikÉnergie, KwikTelecom.</p>
+    <p>Notre mission : centraliser, sécuriser et simplifier vos transferts d’argent.</p>
   </section>
 
-  <!-- Son oiseaux -->
-  <audio id="birds-sound" muted autoplay loop>
-    <source src="mixkit-little-birds-singing-in-the-trees-17.wav" type="audio/wav">
-  </audio>
-  <button id="toggleSound">🔇 Remettre le son</button>
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 KwikSend - Votre argent partout tout de suite.</p>
+    <a href="mailto:contact@kwiksend.com">Nous contacter</a>
+  </footer>
 
-  <script>
-    const audio = document.getElementById("birds-sound");
-    audio.volume = 0.2;
-    const toggleBtn = document.getElementById("toggleSound");
-    let playing = false;
-
-    toggleBtn.addEventListener("click", () => {
-      if (playing) {
-        audio.pause();
-        toggleBtn.innerText = "🔇 Remettre le son";
-      } else {
-        audio.play();
-        audio.muted = false;
-        toggleBtn.innerText = "🔊 Couper le son";
-      }
-      playing = !playing;
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
