@@ -1,15 +1,3 @@
-const sound = document.getElementById("bird-sound");
-const toggleBtn = document.getElementById("sound-toggle");
-
-// Par défaut, le son est en pause
-toggleBtn.textContent = "🔊 Activer le son";
-
-toggleBtn.addEventListener("click", () => {
-  if (sound.paused) {
-    sound.play();
-    toggleBtn.textContent = "🔇 Couper le son";
-  } else {
-    sound.pause();
-    toggleBtn.textContent = "🔊 Activer le son";
-  }
-});
+// script.js
+// Pour l'instant vide, prêt pour les futures interactions
+console.log("KwikSend est prêt !");
