@@ -7,50 +7,46 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Navigation -->
-  <nav>
+  <header>
     <div class="logo">KwikSend</div>
-    <ul>
-      <li><a href="#home">Accueil</a></li>
-      <li><a href="#features">Fonctionnalités</a></li>
-      <li><a href="#advantages">Avantages</a></li>
-      <li><a href="#about">À propos</a></li>
-    </ul>
-  </nav>
+    <nav>
+      <a href="#">Accueil</a>
+      <a href="#">Fonctionnalités</a>
+      <a href="#">Avantages</a>
+      <a href="#">À propos</a>
+    </nav>
+  </header>
 
-  <!-- Section Hero -->
-  <header class="hero" id="home">
+  <section class="hero">
     <h1>Votre argent partout tout de suite 🌍</h1>
     <p>La nouvelle façon d’envoyer et recevoir de l’argent entre l’Afrique et l’Europe.</p>
     <button class="cta">Rejoindre la liste d’attente</button>
-  </header>
-
-  <!-- Scène savane avec SVG -->
-  <section class="savane">
-    <img src="Montage animalier.svg" alt="Animaux de la savane" class="savane-svg">
-    <div class="sun"></div>
   </section>
 
-  <!-- Nos fonctionnalités -->
-  <section id="features" class="features">
+  <!-- Zone avec animaux -->
+  <section class="savane">
+    <img src="Montage-animalier.svg" alt="Animaux de la savane" class="savane-img">
+  </section>
+
+  <section class="features">
     <h2>Nos fonctionnalités</h2>
-    <div class="feature-list">
-      <div class="feature">
+    <div class="cards">
+      <div class="card">
         <h3>Envoyer</h3>
         <p>Transférez de l’Afrique vers l’Europe en quelques secondes.</p>
         <button>Tester</button>
       </div>
-      <div class="feature">
+      <div class="card">
         <h3>Recevoir</h3>
         <p>Recevez directement sur votre portefeuille KwikSend.</p>
         <button>Tester</button>
       </div>
-      <div class="feature">
+      <div class="card">
         <h3>Retrait bancaire</h3>
         <p>Virez vos fonds vers n’importe quel compte bancaire.</p>
         <button>Tester</button>
       </div>
-      <div class="feature">
+      <div class="card">
         <h3>Carte & Code Cash</h3>
         <p>Payez directement ou retirez en cash via un code sécurisé.</p>
         <button>Tester</button>
@@ -58,13 +54,9 @@
     </div>
   </section>
 
-  <!-- Contrôle audio -->
-  <div class="audio-control">
-    <audio id="bird-sound" src="oiseau.mp3"></audio>
-<button id="sound-toggle">🔊 Activer le son</button>
-      <source src="mixkit-petits-oiseaux-chantant-dans-les-arbres-17.mp3" type="audio/mp3">
-    </audio>
-  </div>
+  <!-- Bouton son -->
+  <button id="sound-toggle" class="sound-btn">🔊 Activer le son</button>
+  <audio id="bird-sound" src="oiseau.mp3"></audio>
 
   <script src="script.js"></script>
 </body>
