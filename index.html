@@ -25,19 +25,52 @@
     </nav>
   </header>
 
- <!-- Hero -->
+ <!-- Hero Section Africaine -->
 <section id="accueil" class="hero">
-  <div class="savane">
-    <div class="sun"></div>
-    <div class="animals">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/7/7f/Giraffe_silhouette.svg" class="giraffe" alt="Girafe">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Acacia_tree_silhouette.svg" class="tree" alt="Arbre">
-    </div>
-    <div class="birds">
-      <div class="bird"></div>
-      <div class="bird"></div>
-    </div>
-  </div>
+  <svg viewBox="0 0 1200 500" xmlns="http://www.w3.org/2000/svg" class="hero-bg">
+    <!-- Dégradé ciel -->
+    <defs>
+      <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#ff9900"/>
+        <stop offset="100%" stop-color="#ff3300"/>
+      </linearGradient>
+      <radialGradient id="sun" cx="50%" cy="70%" r="30%">
+        <stop offset="0%" stop-color="#ffdd33" stop-opacity="1"/>
+        <stop offset="100%" stop-color="#ff6600" stop-opacity="0.8"/>
+      </radialGradient>
+    </defs>
+
+    <!-- Ciel -->
+    <rect width="1200" height="500" fill="url(#sky)" />
+
+    <!-- Soleil -->
+    <circle cx="600" cy="300" r="80" fill="url(#sun)">
+      <animate attributeName="cy" from="500" to="300" dur="4s" fill="freeze" />
+    </circle>
+
+    <!-- Oiseaux -->
+    <g class="bird" fill="black">
+      <path d="M10 20 Q 20 10 30 20 Q 20 15 10 20 Z">
+        <animateTransform attributeName="transform" attributeType="XML" type="translate" from="-100 50" to="1300 50" dur="15s" repeatCount="indefinite"/>
+      </path>
+    </g>
+    <g class="bird" fill="black">
+      <path d="M10 20 Q 20 10 30 20 Q 20 15 10 20 Z">
+        <animateTransform attributeName="transform" attributeType="XML" type="translate" from="-200 120" to="1400 120" dur="20s" repeatCount="indefinite"/>
+      </path>
+    </g>
+
+    <!-- Silhouette savane -->
+    <rect y="400" width="1200" height="100" fill="#222"/>
+    <!-- Girafe -->
+    <path d="M200 400 L210 300 L215 200 L220 300 L225 400 Z" fill="#000"/>
+    <!-- Arbre acacia -->
+    <path d="M400 400 L405 300 L410 400 Z" fill="#000"/>
+    <ellipse cx="405" cy="280" rx="80" ry="25" fill="#000"/>
+    <ellipse cx="405" cy="260" rx="100" ry="25" fill="#000"/>
+  </svg>
+
+  <!-- Contenu Hero -->
   <div class="hero-content">
     <h1>Votre argent partout tout de suite 🌍</h1>
     <p>La nouvelle façon d’envoyer et recevoir de l’argent entre l’Afrique et l’Europe.</p>
