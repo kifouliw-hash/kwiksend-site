@@ -80,13 +80,15 @@ section {
 }
 
 .features .cards {
-  display: flex;
-  flex-direction: row;  /* force l’horizontal */
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
-  flex-wrap: wrap;      /* permet de repasser en colonne sur petit écran */
+  justify-content: center;
+  align-items: stretch;
   width: 100%;
-  max-width: 1200px;    /* garde un alignement clean */
+  max-width: 1200px; /* garde un alignement propre */
+  margin: 0 auto; /* centre le bloc dans la page */
+}
 }
 
 }
