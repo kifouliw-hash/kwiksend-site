@@ -74,11 +74,21 @@ section {
 }
 
 /* Fonctionnalités */
-.features .cards {
+.features {
   display: flex;
   justify-content: center;
+}
+
+.features .cards {
+  display: flex;
+  flex-direction: row;  /* force l’horizontal */
+  justify-content: center;
   gap: 20px;
-  flex-wrap: wrap;
+  flex-wrap: wrap;      /* permet de repasser en colonne sur petit écran */
+  width: 100%;
+  max-width: 1200px;    /* garde un alignement clean */
+}
+
 }
 
 .card {
