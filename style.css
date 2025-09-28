@@ -79,6 +79,7 @@ section {
   justify-content: center;
 }
 
+/* Fonctionnalités */
 .features .cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -88,9 +89,6 @@ section {
   width: 100%;
   max-width: 1200px; /* garde un alignement propre */
   margin: 0 auto; /* centre le bloc dans la page */
-}
-}
-
 }
 
 .card {
