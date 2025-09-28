@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KwikSend - Retrait bancaire</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="logo">KwikSend</div>
+    <nav>
+      <a href="index.html">Accueil</a>
+      <a href="envoyer.html">Envoyer</a>
+      <a href="recevoir.html">Recevoir</a>
+      <a href="retrait.html" class="active">Retrait bancaire</a>
+      <a href="carte.html">Carte & Code Cash</a>
+    </nav>
+  </header>
+
+  <section class="page">
+    <h1>Retirer sur un compte bancaire 🏦</h1>
+    <p>Transférez vos fonds directement sur n’importe quel compte bancaire.</p>
+
+    <form class="formulaire">
+      <label for="iban">IBAN :</label>
+      <input type="text" id="iban" placeholder="FR76 3000 6000 ..." required>
+
+      <label for="nom">Nom du bénéficiaire :</label>
+      <input type="text" id="nom" placeholder="Nom complet" required>
+
+      <label for="montant">Montant (€) :</label>
+      <input type="number" id="montant" placeholder="Ex: 500" required>
+
+      <button type="submit">Retirer</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>© 2025 KwikSend. Tous droits réservés.</p>
+  </footer>
+</body>
+</html>
