@@ -3,10 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KwikSend - Connexion</title>
+  <title>KwikSend - Authentification</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    /* 🌅 Arrière-plan général */
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -18,14 +17,14 @@
     }
 
     .auth-container {
-      background: #ffffff;
+      background: #fff;
       width: 100%;
       max-width: 400px;
       padding: 2rem;
       border-radius: 15px;
       box-shadow: 0 4px 15px rgba(0,0,0,0.1);
       text-align: center;
-      animation: fadeIn 0.5s ease;
+      animation: fadeIn 0.4s ease;
     }
 
     h1 {
@@ -92,6 +91,7 @@
 
 <body>
   <div class="auth-container">
+
     <!-- Connexion -->
     <div id="login-form">
       <h1>Connexion 🔐</h1>
@@ -102,8 +102,8 @@
         <button type="submit">Se connecter</button>
       </form>
       <div class="links">
-        <p><a>Mot de passe oublié ?</a></p>
-        <p>Pas encore de compte ? <a onclick="toggleForms()">Créer un compte</a></p>
+        <p><a onclick="toggleToReset()">Mot de passe oublié ?</a></p>
+        <p>Pas encore de compte ? <a onclick="toggleToSignup()">Créer un compte</a></p>
       </div>
     </div>
 
@@ -118,32 +118,64 @@
         <button type="submit">Créer mon compte</button>
       </form>
       <div class="links">
-        <p>Déjà inscrit ? <a onclick="toggleForms()">Se connecter</a></p>
+        <p>Déjà inscrit ? <a onclick="toggleToLogin()">Se connecter</a></p>
       </div>
     </div>
+
+    <!-- Mot de passe oublié -->
+    <div id="reset-form" class="hidden">
+      <h1>Réinitialisation 🔑</h1>
+      <p class="subtitle">Entrez votre e-mail pour recevoir un lien de réinitialisation</p>
+      <form onsubmit="return simulateReset(event)">
+        <input type="email" placeholder="Adresse e-mail" required>
+        <button type="submit">Envoyer le lien</button>
+      </form>
+      <div class="links">
+        <p><a onclick="toggleToLogin()">⬅ Retour à la connexion</a></p>
+      </div>
+    </div>
+
   </div>
 
   <script>
     const loginForm = document.getElementById('login-form');
     const signupForm = document.getElementById('signup-form');
+    const resetForm = document.getElementById('reset-form');
 
-    function toggleForms() {
-      loginForm.classList.toggle('hidden');
-      signupForm.classList.toggle('hidden');
+    function toggleToSignup() {
+      loginForm.classList.add('hidden');
+      signupForm.classList.remove('hidden');
+      resetForm.classList.add('hidden');
+    }
+
+    function toggleToLogin() {
+      loginForm.classList.remove('hidden');
+      signupForm.classList.add('hidden');
+      resetForm.classList.add('hidden');
+    }
+
+    function toggleToReset() {
+      loginForm.classList.add('hidden');
+      signupForm.classList.add('hidden');
+      resetForm.classList.remove('hidden');
     }
 
     function simulateLogin(e) {
       e.preventDefault();
       alert("✅ Simulation réussie : Connexion KwikSend en cours...");
       window.location.href = "index.html";
-      return false;
     }
 
     function simulateSignup(e) {
       e.preventDefault();
       alert("🎉 Votre compte KwikSend a été créé avec succès !");
       window.location.href = "index.html";
-      return false;
+    }
+
+    function simulateReset(e) {
+      e.preventDefault();
+      alert("📩 Un lien de réinitialisation vient d'être envoyé à votre adresse e-mail !");
+      toggleToLogin();
     }
   </script>
 </body>
