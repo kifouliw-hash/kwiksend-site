@@ -3,11 +3,148 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Connexion - KwikSend</title>
+  <title>KwikSend - Connexion</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* 🌅 Arrière-plan général */
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(180deg, #ff7a00, #ffcc00);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .auth-container {
+      background: #ffffff;
+      width: 100%;
+      max-width: 400px;
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      text-align: center;
+      animation: fadeIn 0.5s ease;
+    }
+
+    h1 {
+      color: #ff7a00;
+      margin-bottom: 0.5rem;
+    }
+
+    p.subtitle {
+      margin-bottom: 1.5rem;
+      color: #555;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    input {
+      padding: 0.8rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+
+    button {
+      background: linear-gradient(90deg, #ff7a00, #ffcc00);
+      border: none;
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 600;
+      padding: 0.8rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    .links {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+    }
+
+    .links a {
+      color: #ff7a00;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
 </head>
+
 <body>
-  <h1>Page Connexion en construction 🔐</h1>
-  <p>Cette section sera bientôt disponible.</p>
-  <a href="index.html">⬅ Retour à l'accueil</a>
+  <div class="auth-container">
+    <!-- Connexion -->
+    <div id="login-form">
+      <h1>Connexion 🔐</h1>
+      <p class="subtitle">Accédez à votre compte KwikSend</p>
+      <form onsubmit="return simulateLogin(event)">
+        <input type="email" placeholder="Adresse e-mail" required>
+        <input type="password" placeholder="Mot de passe" required>
+        <button type="submit">Se connecter</button>
+      </form>
+      <div class="links">
+        <p><a>Mot de passe oublié ?</a></p>
+        <p>Pas encore de compte ? <a onclick="toggleForms()">Créer un compte</a></p>
+      </div>
+    </div>
+
+    <!-- Création de compte -->
+    <div id="signup-form" class="hidden">
+      <h1>Créer un compte ✨</h1>
+      <p class="subtitle">Rejoignez KwikSend en quelques secondes</p>
+      <form onsubmit="return simulateSignup(event)">
+        <input type="text" placeholder="Nom complet" required>
+        <input type="email" placeholder="Adresse e-mail" required>
+        <input type="password" placeholder="Mot de passe" required>
+        <button type="submit">Créer mon compte</button>
+      </form>
+      <div class="links">
+        <p>Déjà inscrit ? <a onclick="toggleForms()">Se connecter</a></p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const loginForm = document.getElementById('login-form');
+    const signupForm = document.getElementById('signup-form');
+
+    function toggleForms() {
+      loginForm.classList.toggle('hidden');
+      signupForm.classList.toggle('hidden');
+    }
+
+    function simulateLogin(e) {
+      e.preventDefault();
+      alert("✅ Simulation réussie : Connexion KwikSend en cours...");
+      window.location.href = "index.html";
+      return false;
+    }
+
+    function simulateSignup(e) {
+      e.preventDefault();
+      alert("🎉 Votre compte KwikSend a été créé avec succès !");
+      window.location.href = "index.html";
+      return false;
+    }
+  </script>
 </body>
 </html>
