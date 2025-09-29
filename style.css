@@ -273,3 +273,27 @@ footer {
     grid-template-columns: 1fr;
   }
 }
+/* 🌟 Style cartes cliquables */
+.card.clickable {
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card.clickable:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* 🟠 Bouton Connexion (au cas où il n'était pas encore ajouté correctement) */
+.cta-nav {
+  background: #ffffff;
+  color: #ff7a00 !important;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  line-height: normal;
+}
+
