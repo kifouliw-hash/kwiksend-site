@@ -78,12 +78,15 @@ header {
 }
 
 .cta-nav {
-  background: var(--text-light);
-  color: var(--orange);
+  background: #fff;
+  color: #ff7a00;
   padding: 0.4rem 0.8rem;
   border-radius: 20px;
   font-weight: 600;
   text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  line-height: normal;
 }
 
 /* 🍔 Menu Burger (mobile) */
