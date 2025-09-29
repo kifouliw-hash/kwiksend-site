@@ -1,76 +1,104 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>KwikSend - Transferts rapides Afrique ↔ Europe</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-  <!-- Navbar -->
+  <!-- 🧭 Header -->
   <header>
-    <div class="logo">KwikSend</div>
-    <nav>
-      <a href="#accueil">Accueil</a>
-      <a href="#fonctionnalites">Fonctionnalités</a>
-      <a href="#avantages">Avantages</a>
-      <a href="#apropos">À propos</a>
-    </nav>
+    <div class="container header-container">
+      <div class="logo">Kwik<span>Send</span></div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#accueil" class="active">Accueil</a></li>
+          <li><a href="#fonctionnalites">Fonctionnalités</a></li>
+          <li><a href="#avantages">Avantages</a></li>
+          <li><a href="#apropos">À propos</a></li>
+          <li><a href="connexion.html" class="cta-nav">Connexion</a></li>
+        </ul>
+        <div class="burger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </nav>
+    </div>
   </header>
 
-  <!-- Hero -->
+  <!-- 🦸 Hero Section -->
   <section class="hero" id="accueil">
-    <h1>Votre argent partout tout de suite 🌍</h1>
-    <p>La nouvelle façon d’envoyer et recevoir de l’argent entre l’Afrique et l’Europe.</p>
-    <a href="attente.html" class="cta">Rejoindre la liste d’attente</a>
-  </section>
-
-  <!-- Fonctionnalités -->
-  <section class="features" id="fonctionnalites">
-    <h2>Nos fonctionnalités</h2>
-    <div class="card">
-  <h3>Envoyer</h3>
-  <p>Transférez de l’Afrique vers l’Europe en quelques secondes.</p>
-  <button onclick="window.location.href='envoyer.html'">Tester</button>
-</div>
-<div class="card">
-  <h3>Recevoir</h3>
-  <p>Recevez directement sur votre portefeuille KwikSend.</p>
-  <button onclick="window.location.href='recevoir.html'">Tester</button>
-</div>
-<div class="card">
-  <h3>Retrait bancaire</h3>
-  <p>Virez vos fonds vers n’importe quel compte bancaire.</p>
-  <button onclick="window.location.href='retrait.html'">Tester</button>
-</div>
-<div class="card">
-  <h3>Carte & Code Cash</h3>
-  <p>Payez directement ou retirez en cash via un code sécurisé.</p>
-  <button onclick="window.location.href='carte.html'">Tester</button>
-</div>
+    <div class="hero-content">
+      <h1>Votre argent partout tout de suite 🌍</h1>
+      <p>La nouvelle façon d’envoyer et de recevoir de l’argent entre l’Afrique et l’Europe.</p>
+      <a href="attente.html" class="cta-btn">Rejoindre la liste d’attente</a>
     </div>
   </section>
 
-  <!-- Avantages -->
+  <!-- ✨ Nouvelles Fonctionnalités -->
+  <section class="features" id="fonctionnalites">
+    <div class="container">
+      <h2>Ce que vous pouvez faire avec KwikSend</h2>
+      <div class="features-grid">
+
+        <div class="card">
+          <h3>💰 Portefeuille numérique</h3>
+          <p>Gérez votre argent facilement en FCFA et en Euro, où que vous soyez.</p>
+        </div>
+
+        <div class="card">
+          <h3>🔄 Transferts Afrique ↔ Europe</h3>
+          <p>Envoyez ou recevez instantanément entre l’Afrique et l’Europe, sans tracas.</p>
+        </div>
+
+        <div class="card">
+          <h3>👥 Transferts KwikSend ↔ KwikSend</h3>
+          <p>Transférez gratuitement ou à petit coût entre utilisateurs KwikSend.</p>
+        </div>
+
+        <div class="card">
+          <h3>📲 Mobile Money & IBAN</h3>
+          <p>Alimentez ou retirez facilement via Orange Money, Wave ou compte bancaire européen.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 🌍 Avantages -->
   <section class="advantages" id="avantages">
-    <h2>Pourquoi choisir KwikSend ?</h2>
-    <ul>
-      <li>⚡ Rapidité : transferts instantanés.</li>
-      <li>🔒 Sécurité : transactions chiffrées et protégées.</li>
-      <li>🌍 Accessibilité : utilisable en Afrique et en Europe.</li>
-      <li>💳 Flexibilité : multiples moyens de retrait et de paiement.</li>
-    </ul>
+    <div class="container">
+      <h2>Pourquoi choisir KwikSend ?</h2>
+      <ul>
+        <li>⚡ Rapidité : transferts instantanés.</li>
+        <li>🔒 Sécurité : transactions chiffrées et protégées.</li>
+        <li>🌍 Accessibilité : utilisable en Afrique et en Europe.</li>
+        <li>💳 Flexibilité : multiples moyens de retrait et de paiement.</li>
+      </ul>
+    </div>
   </section>
 
-  <!-- À propos -->
+  <!-- 📝 À propos -->
   <section class="about" id="apropos">
-    <h2>À propos</h2>
-    <p>KwikSend est une solution moderne de transfert d’argent pensée pour connecter l’Afrique et l’Europe, en offrant rapidité, simplicité et sécurité.</p>
+    <div class="container">
+      <h2>À propos</h2>
+      <p>
+        KwikSend est une solution moderne de transfert d’argent pensée pour connecter l’Afrique et l’Europe. 
+        Notre mission est d’offrir rapidité, simplicité et sécurité à tous ceux qui ont besoin de faire circuler leur argent entre les deux continents.
+      </p>
+    </div>
   </section>
 
-  <!-- Footer -->
+  <!-- 📌 Footer -->
   <footer>
-    <p>© 2025 KwikSend. Tous droits réservés.</p>
+    <div class="container">
+      <p>© 2025 KwikSend. Tous droits réservés.</p>
+    </div>
   </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
