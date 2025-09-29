@@ -78,17 +78,22 @@ header {
 }
 
 .cta-nav {
-  background: #ffffff;
-  color: #ff7a00 !important;
-  padding: 0.4rem 0.8rem;
-  border-radius: 20px;
+  background: transparent;
+  color: #ffffff !important;
+  border: 2px solid #ffffff;
+  padding: 0.4rem 0.9rem;
+  border-radius: 25px;
   font-weight: 600;
   text-decoration: none;
   display: inline-block;
   text-align: center;
   line-height: normal;
+  transition: all 0.3s ease;
 }
-
+.cta-nav:hover {
+  background: #ffffff;
+  color: #ff7a00 !important;
+}
 
 /* 🍔 Menu Burger (mobile) */
 .burger {
