@@ -1,3 +1,7 @@
-// script.js
-// Pour l'instant vide, prêt pour les futures interactions
-console.log("KwikSend est prêt !");
+// 🍔 Menu mobile toggle
+const burger = document.querySelector('.burger');
+const navLinks = document.querySelector('.nav-links');
+
+burger.addEventListener('click', () => {
+  navLinks.classList.toggle('open');
+});
