@@ -92,8 +92,10 @@
 <!-- 🍔 Script Menu Mobile -->
 <script>
   function toggleMenu() {
-    document.getElementById('nav-menu').classList.toggle('open');
-    document.querySelector('.burger').classList.toggle('active');
+    const menu = document.getElementById('nav-menu');
+    const burger = document.querySelector('.burger');
+    menu.classList.toggle('open');
+    burger.classList.toggle('active');
   }
 </script>
 
