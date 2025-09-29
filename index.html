@@ -7,11 +7,15 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
- <!-- 🧭 Header -->
+<!-- 🧭 Header -->
 <header>
   <div class="container header-container">
     <div class="logo">Kwik<span>Send</span></div>
-    <nav>
+
+    <!-- Bouton menu burger pour mobile -->
+    <div class="burger" onclick="toggleMenu()">☰</div>
+
+    <nav id="nav-menu">
       <ul class="nav-links">
         <li><a href="#accueil" class="active">Accueil</a></li>
         <li><a href="#fonctionnalites">Fonctionnalités</a></li>
