@@ -1,9 +1,15 @@
-/* ======= Base ======= */
+/* ======= Design System (clair) ======= */
 :root{
   --o:#ff7a00; --y:#ffcc00; --g:#0a7f38;
   --bg:#f6f1e9; --card:#fff; --text:#222; --muted:#666;
   --ok:#1f9d55; --warn:#ff9f1a; --err:#e03131;
   --shadow:0 8px 24px rgba(0,0,0,.08);
+}
+
+/* ======= Dark mode ======= */
+.dark{
+  --bg:#0f1115; --card:#171a21; --text:#e6e6e6; --muted:#a0a0a0;
+  --shadow:0 8px 24px rgba(0,0,0,.4);
 }
 
 *{box-sizing:border-box}
@@ -24,8 +30,9 @@ header{
 .header-actions{display:flex;align-items:center;gap:8px}
 .lang{padding:6px 8px;border-radius:8px;border:none}
 .back{color:#fff;opacity:.9}
+.theme-switch{background:rgba(255,255,255,.2);padding:8px 12px;border-radius:10px}
 
-/* ======= Hero / CTA ======= */
+/* ======= Hero ======= */
 .hero{
   background:linear-gradient(180deg,var(--o),var(--y));
   color:#fff;text-align:center;padding:56px 16px;
@@ -35,52 +42,62 @@ header{
 .cta{background:var(--g);color:#fff;padding:12px 18px;border-radius:12px;box-shadow:var(--shadow)}
 .cta:active{transform:translateY(1px)}
 
-/* ======= Cards ======= */
+/* ======= Cards / Grids ======= */
 .card{background:var(--card);border-radius:14px;box-shadow:var(--shadow);padding:16px}
 .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
 .g-4{grid-column:span 4}
 .g-6{grid-column:span 6}
 @media(max-width:900px){.g-6,.g-4{grid-column:span 12}}
 
-/* ======= Wallet widgets ======= */
+/* ======= Balance & Actions ======= */
 .balance{text-align:center}
 .balance h2{margin:0;color:var(--o);font-size:36px}
 .balance small{color:var(--muted)}
 .actions{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:16px}
 @media(max-width:700px){.actions{grid-template-columns:repeat(2,1fr)}}
 .action{background:#faf8f3;border-radius:12px;padding:14px;text-align:center;transition:.15s}
+.dark .action{background:#1d222b}
 .action:hover{transform:translateY(-2px)}
 .action h3{margin:6px 0 0;color:var(--o);font-size:16px}
 
-/* ======= Inline simulator ======= */
+/* ======= Simulator ======= */
 .simulator{display:flex;gap:10px;flex-wrap:wrap;align-items:end}
 .simulator .field{flex:1;min-width:160px}
 .label{display:block;font-size:13px;color:var(--muted);margin-bottom:6px}
-.input,select{width:100%;padding:10px 12px;border-radius:10px;border:1px solid #e7e0d5;background:#fff}
+.input,select,textarea{width:100%;padding:10px 12px;border-radius:10px;border:1px solid #2c2c2c15;background:#fff;color:var(--text)}
+.dark .input,.dark select,.dark textarea{background:#0f1115;border-color:#2a2f39;color:#dfe6ee}
 .result{background:#fef8eb;border-radius:12px;padding:12px}
+.dark .result{background:#2a2f39}
 .result b{color:var(--o)}
 .inline-go{background:var(--g);color:#fff;border-radius:10px;padding:10px 14px}
 
 /* ======= Filters & History ======= */
 .filters{display:flex;flex-wrap:wrap;gap:10px;align-items:end}
 .chip{border:1px solid #e7e0d5;border-radius:50px;padding:8px 12px;background:#fff}
+.dark .chip{border-color:#2a2f39;background:#171a21}
 .search{flex:1;min-width:160px}
 .table{width:100%;border-collapse:collapse}
 .table th,.table td{padding:12px;border-bottom:1px solid #eee;text-align:left}
+.dark .table th,.dark .table td{border-bottom:1px solid #2a2f39}
 .table th{background:#fffaf2;color:#222}
+.dark .table th{background:#1d222b;color:#e6e6e6}
 .badge{padding:4px 10px;border-radius:999px;font-size:12px;font-weight:600}
 .badge.ok{background:#e8fff1;color:#057a36}
 .badge.pending{background:#fff8e6;color:#8a5b00}
 .badge.err{background:#ffe8e8;color:#7d1717}
 .totals{display:flex;gap:16px;margin:8px 0;color:#333}
+.dark .totals{color:#e6e6e6}
 .totals .box{background:#fff;border-radius:10px;padding:8px 12px}
+.dark .totals .box{background:#171a21}
 
 /* ======= Modal / PIN ======= */
 .modal-back{position:fixed;inset:0;background:rgba(0,0,0,.25);display:none;align-items:center;justify-content:center;z-index:20}
 .modal{background:#fff;border-radius:14px;box-shadow:var(--shadow);max-width:560px;width:96%;padding:16px}
+.dark .modal{background:#171a21}
 .modal .title{font-weight:800;font-size:18px;margin:0 0 10px}
 .pin-wrap{display:flex;gap:8px;justify-content:center}
 .pin-wrap input{width:40px;height:48px;text-align:center;font-size:20px;border:1px solid #ddd;border-radius:10px}
+.dark .pin-wrap input{background:#0f1115;border-color:#2a2f39;color:#e6e6e6}
 .modal-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:14px}
 .btn{padding:10px 14px;border-radius:10px}
 .btn.ok{background:var(--g);color:#fff}
@@ -89,3 +106,19 @@ header{
 /* ======= Toast ======= */
 .toast{position:fixed;right:16px;bottom:16px;z-index:30;display:flex;flex-direction:column;gap:8px}
 .toast .t{background:#222;color:#fff;padding:10px 14px;border-radius:12px;box-shadow:var(--shadow)}
+
+/* ======= Virtual Card (réaliste) ======= */
+.card-ui{
+  position:relative; border-radius:18px; color:#fff;
+  background:linear-gradient(135deg,#24243e,#302b63,#0f0c29);
+  padding:18px; min-height:170px; box-shadow:0 12px 40px rgba(0,0,0,.3);
+}
+.card-ui .brand{position:absolute;right:18px;top:16px;font-weight:700;opacity:.9}
+.card-ui .chip{width:44px;height:32px;background:#d7c88f;border-radius:6px;margin-top:12px}
+.card-ui .num{font-size:22px;letter-spacing:2px;margin:18px 0 6px}
+.card-ui .meta{display:flex;gap:20px;color:#ddd;font-size:13px}
+.card-ui .holder{margin-top:14px;font-weight:700;letter-spacing:1px}
+.card-ui .badges{position:absolute;right:18px;bottom:16px;display:flex;gap:8px}
+.badge2{padding:6px 10px;background:rgba(255,255,255,.15);backdrop-filter:blur(6px);border-radius:10px}
+.actions-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.outline{background:transparent;border:1px solid rgba(255,255,255,.3);color:#fff}
