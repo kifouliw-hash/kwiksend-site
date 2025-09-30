@@ -3,60 +3,46 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mobile Money & IBAN - KwikSend</title>
+  <title>KwikSend - Mobile Money & IBAN</title>
   <link rel="stylesheet" href="style.css">
-  <style>
-    body {font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;margin:0;background:#f9f9f9;}
-    header {background:linear-gradient(90deg,#ff7a00,#ffcc00);padding:1rem;display:flex;justify-content:space-between;align-items:center;color:white;}
-    .mobile-box {max-width:600px;margin:2rem auto;background:white;padding:2rem;border-radius:12px;box-shadow:0 4px 10px rgba(0,0,0,0.1);}
-    h1 {color:#ff7a00;}
-    .action-choice {display:flex;gap:1rem;margin-bottom:1rem;}
-    .action-btn {flex:1;background:#f3f3f3;padding:1rem;border-radius:8px;text-align:center;cursor:pointer;transition:0.2s;}
-    .action-btn:hover {background:#ffefdc;}
-    form {display:flex;flex-direction:column;gap:1rem;}
-    input, select {padding:0.8rem;border-radius:8px;border:1px solid #ccc;}
-    button {background:linear-gradient(90deg,#ff7a00,#ffcc00);border:none;color:white;font-weight:600;padding:0.8rem;border-radius:8px;cursor:pointer;}
-  </style>
 </head>
 <body>
-
-  <header>
+<header>
+  <div class="container header-container">
     <div class="logo">Kwik<span>Send</span></div>
-    <a href="index.html">⬅ Retour</a>
-  </header>
-
-  <div class="mobile-box">
-    <h1>🏦 Mobile Money & IBAN</h1>
-    <div class="action-choice">
-      <div class="action-btn" onclick="setAction('recharger')">💳 Recharger</div>
-      <div class="action-btn" onclick="setAction('retirer')">🏧 Retirer</div>
-    </div>
-    <form onsubmit="simulateMobileAction(event)">
-      <select id="method" required>
-        <option value="">Choisir une méthode</option>
-        <option>Orange Money</option>
-        <option>Wave</option>
-        <option>IBAN Européen</option>
-      </select>
-      <input type="number" placeholder="Montant" required>
-      <input type="text" placeholder="Numéro ou IBAN" required>
-      <button type="submit" id="action-btn-label">Valider</button>
-    </form>
+    <a href="portefeuille.html" class="cta-nav">⬅ Retour</a>
   </div>
+</header>
 
-  <script>
-    let currentAction = 'recharger';
+<main class="wallet-container">
+  <h2>🏦 Mobile Money & IBAN</h2>
+  <form onsubmit="simulateMobile(event)">
+    <label>Action</label>
+    <select id="mobileAction">
+      <option value="topup">Recharger</option>
+      <option value="withdraw">Retirer</option>
+    </select>
 
-    function setAction(action) {
-      currentAction = action;
-      document.getElementById('action-btn-label').innerText = action === 'recharger' ? 'Recharger' : 'Retirer';
-    }
+    <label>Méthode</label>
+    <select id="mobileMethod">
+      <option>Orange Money</option>
+      <option>Wave</option>
+      <option>MTN</option>
+      <option>Moov</option>
+      <option>IBAN</option>
+    </select>
 
-    function simulateMobileAction(e) {
-      e.preventDefault();
-      alert(`✅ Simulation : ${currentAction === 'recharger' ? 'Rechargement' : 'Retrait'} effectué avec succès !`);
-      window.location.href = "portefeuille.html";
-    }
-  </script>
+    <label>Montant</label>
+    <input type="number" id="mobileAmount" placeholder="Montant" required>
+
+    <label>Numéro / IBAN</label>
+    <input type="text" id="mobileRef" placeholder="N° Mobile ou IBAN" required>
+
+    <button type="submit">Valider</button>
+  </form>
+  <p id="mobile-result"></p>
+</main>
+
+<script src="wallet.js"></script>
 </body>
 </html>
