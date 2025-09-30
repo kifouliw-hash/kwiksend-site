@@ -11,6 +11,7 @@
   <div class="container header-row">
     <div class="logo">Kwik<span>Send</span></div>
     <div class="header-actions">
+      <button id="themeToggle" class="theme-switch">🌓</button>
       <a class="back" href="index.html">⬅ Home</a>
       <select id="lang" class="lang">
         <option value="fr">FR</option><option value="en">EN</option><option value="es">ES</option><option value="pt">PT</option>
@@ -32,6 +33,28 @@
     <div class="action" data-action="receive"><div>📥</div><h3>Recevoir</h3></div>
     <div class="action" data-action="withdraw"><div>🏦</div><h3>Retrait</h3></div>
     <div class="action" data-action="card"><div>💳</div><h3>Carte virtuelle</h3></div>
+  </div>
+
+  <!-- Carte virtuelle (réaliste) -->
+  <div class="card" style="margin-top:16px">
+    <div id="vcard_view"></div>
+    <div class="actions-row">
+      <button id="btn_v_freeze" class="btn outline">Geler</button>
+      <button id="btn_v_reveal" class="btn outline">Afficher CVV</button>
+      <button id="btn_v_new" class="btn outline">Nouvelle carte</button>
+    </div>
+  </div>
+
+  <!-- Contacts P2P -->
+  <div class="card" style="margin-top:16px">
+    <h3 style="margin:0 0 8px">Contacts KwikSend</h3>
+    <div id="contacts_list"></div>
+    <div class="actions-row">
+      <input id="c_name" class="input" placeholder="Nom complet" style="max-width:220px">
+      <input id="c_alias" class="input" placeholder="Alias" style="max-width:140px">
+      <input id="c_acct" class="input" placeholder="N° Mobile ou IBAN" style="min-width:240px">
+      <button id="c_add" class="btn ok">Ajouter</button>
+    </div>
   </div>
 
   <!-- Simulateur inline -->
