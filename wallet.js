@@ -20,8 +20,20 @@ function simulateWithdraw() {
 
 // 💳 Simulation carte virtuelle
 function simulateCard() {
-  alert("💳 Simulation : Carte virtuelle générée !");
+  const container = document.getElementById("virtual-card-container");
+  container.style.display = "block";
+
+  // ⚡ Générer numéro aléatoire factice
+  const randomNum = Math.floor(1000 + Math.random() * 9000);
+  const cardNumber = `**** **** **** ${randomNum}`;
+
+  // Insérer dans la carte
+  container.querySelector(".card-number").innerText = cardNumber;
+
+  // Notif visuelle
+  alert("💳 Carte virtuelle générée !");
 }
+
 
 // 🔢 Simulation frais
 function simulateFees() {
