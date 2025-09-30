@@ -3,154 +3,78 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portefeuille – KwikSend</title>
+  <title>KwikSend - Portefeuille</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <header>
-  <div class="container header-row">
+  <div class="container header-container">
     <div class="logo">Kwik<span>Send</span></div>
-    <div class="header-actions">
-      <button id="themeToggle" class="theme-switch">🌓</button>
-      <a class="back" href="index.html">⬅ Home</a>
-      <select id="lang" class="lang">
-        <option value="fr">FR</option><option value="en">EN</option><option value="es">ES</option><option value="pt">PT</option>
-      </select>
-    </div>
+    <a href="index.html" class="cta-nav">⬅ Retour</a>
   </div>
 </header>
 
-<div class="container" id="app">
-  <!-- Solde -->
-  <div class="card balance">
-    <h2 id="balanceCFA">– FCFA</h2>
-    <small id="balanceEUR">≈ – EUR</small>
-  </div>
+<main class="wallet-container">
+  <!-- 💰 Solde -->
+  <section class="wallet-balance">
+    <h1>20 000 FCFA</h1>
+    <p>≈ 30 EUR</p>
+    <button onclick="simulateTopup()">➕ Alimenter le portefeuille</button>
+  </section>
 
-  <!-- Actions -->
-  <div class="actions">
-    <div class="action" data-action="send"><div>📤</div><h3>Envoyer</h3></div>
-    <div class="action" data-action="receive"><div>📥</div><h3>Recevoir</h3></div>
-    <div class="action" data-action="withdraw"><div>🏦</div><h3>Retrait</h3></div>
-    <div class="action" data-action="card"><div>💳</div><h3>Carte virtuelle</h3></div>
-  </div>
+  <!-- 🧭 Actions -->
+  <section class="wallet-actions">
+    <div class="action-card" onclick="simulateSend()"><h3>📤 Envoyer</h3></div>
+    <div class="action-card" onclick="simulateReceive()"><h3>📥 Recevoir</h3></div>
+    <div class="action-card" onclick="simulateWithdraw()"><h3>🏦 Retrait</h3></div>
+    <div class="action-card" onclick="simulateCard()"><h3>💳 Carte virtuelle</h3></div>
+  </section>
 
-  <!-- Carte virtuelle (réaliste) -->
-  <div class="card" style="margin-top:16px">
-    <div id="vcard_view"></div>
-    <div class="actions-row">
-      <button id="btn_v_freeze" class="btn outline">Geler</button>
-      <button id="btn_v_reveal" class="btn outline">Afficher CVV</button>
-      <button id="btn_v_new" class="btn outline">Nouvelle carte</button>
-    </div>
-  </div>
+  <!-- 👥 Contacts -->
+  <section class="wallet-contacts">
+    <h2>Contacts KwikSend</h2>
+    <input type="text" placeholder="Nom complet">
+    <input type="text" placeholder="Alias">
+    <input type="text" placeholder="N° Mobile ou IBAN">
+    <button>Ajouter</button>
+  </section>
 
-  <!-- Contacts P2P -->
-  <div class="card" style="margin-top:16px">
-    <h3 style="margin:0 0 8px">Contacts KwikSend</h3>
-    <div id="contacts_list"></div>
-    <div class="actions-row">
-      <input id="c_name" class="input" placeholder="Nom complet" style="max-width:220px">
-      <input id="c_alias" class="input" placeholder="Alias" style="max-width:140px">
-      <input id="c_acct" class="input" placeholder="N° Mobile ou IBAN" style="min-width:240px">
-      <button id="c_add" class="btn ok">Ajouter</button>
-    </div>
-  </div>
+  <!-- 🔢 Simulation -->
+  <section class="wallet-simulator">
+    <h2>Simulateur de transfert</h2>
+    <select>
+      <option>Afrique → Europe</option>
+      <option>Europe → Afrique</option>
+    </select>
+    <input type="number" placeholder="Montant">
+    <select>
+      <option>Orange Money</option>
+      <option>Wave</option>
+      <option>MTN</option>
+      <option>Moov</option>
+      <option>IBAN</option>
+    </select>
+    <button onclick="simulateFees()">Simuler</button>
+    <p id="fees-result"></p>
+  </section>
 
-  <!-- Simulateur inline -->
-  <div class="card" style="margin-top:16px">
-    <div class="simulator">
-      <div class="field">
-        <label class="label">Direction</label>
-        <select id="sim_dir">
-          <option value="AE">Afrique → Europe</option>
-          <option value="EA">Europe → Afrique</option>
-        </select>
-      </div>
-      <div class="field">
-        <label class="label">Montant</label>
-        <input id="sim_amount" class="input" type="number" placeholder="Montant">
-      </div>
-      <div class="field">
-        <label class="label">Canal</label>
-        <select id="sim_channel">
-          <option value="MOBILE">Mobile Money</option>
-          <option value="IBAN">IBAN</option>
-          <option value="P2P">KwikSend ↔ KwikSend</option>
-        </select>
-      </div>
-      <button id="sim_go" class="inline-go">Simuler</button>
-      <div class="result" id="sim_result" style="flex-basis:100%">Entrez un montant pour simuler.</div>
-    </div>
-  </div>
-
-  <!-- Filtres -->
-  <div class="card" style="margin-top:16px">
-    <div class="filters">
-      <div class="chip">
-        <label class="label">Type</label>
-        <select id="f_type" class="input">
-          <option value="">Tous</option>
-          <option>TopUp</option><option>Send</option><option>Receive</option>
-          <option>P2P</option><option>Withdraw</option>
-        </select>
-      </div>
-      <div class="chip">
-        <label class="label">Statut</label>
-        <select id="f_status" class="input">
-          <option value="">Tous</option><option>Completed</option><option>Pending</option><option>Failed</option>
-        </select>
-      </div>
-      <div class="chip">
-        <label class="label">Du</label><input type="date" id="f_from" class="input">
-      </div>
-      <div class="chip">
-        <label class="label">Au</label><input type="date" id="f_to" class="input">
-      </div>
-      <div class="search">
-        <label class="label">Recherche</label><input id="f_q" class="input" placeholder="Ref, libellé…">
-      </div>
-      <button id="btn_export" class="chip">⬇ Export CSV</button>
-      <button id="btn_reset" class="chip">♻ Reset sandbox</button>
-    </div>
-  </div>
-
-  <!-- Totaux -->
-  <div class="totals">
-    <div class="box">Crédits visibles : <b id="tot_in">– FCFA</b></div>
-    <div class="box">Débits visibles : <b id="tot_out">– FCFA</b></div>
-    <div class="box">Solde (CFA) : <b id="tot_bal">– FCFA</b></div>
-  </div>
-
-  <!-- Historique -->
-  <div class="card">
-    <table class="table" id="tbl">
+  <!-- 📊 Historique -->
+  <section class="transaction-history">
+    <h2>Historique</h2>
+    <table>
       <thead>
         <tr>
-          <th>Date</th><th>Type</th><th>Libellé</th><th>Montant</th><th>Statut</th><th>Ref</th><th>Pays</th>
+          <th>Date</th><th>Type</th><th>Montant</th><th>Statut</th>
         </tr>
       </thead>
-      <tbody></tbody>
+      <tbody id="history-table">
+        <tr><td>26/01</td><td>Orange Money</td><td>10 000 FCFA</td><td>✅ Terminé</td></tr>
+        <tr><td>25/01</td><td>Retrait IBAN</td><td>25 EUR</td><td>✅ Terminé</td></tr>
+      </tbody>
     </table>
-  </div>
-</div>
+  </section>
+</main>
 
-<!-- Modal PIN -->
-<div class="modal-back" id="pin_back">
-  <div class="modal">
-    <div class="title">Confirmer avec PIN</div>
-    <p>Entrez votre code à 4 chiffres pour confirmer.</p>
-    <div class="pin-wrap">
-      <input maxlength="1"><input maxlength="1"><input maxlength="1"><input maxlength="1">
-    </div>
-    <div class="modal-actions">
-      <button class="btn out" id="pin_cancel">Annuler</button>
-      <button class="btn ok" id="pin_ok">Valider</button>
-    </div>
-  </div>
-</div>
-
-<script src="ks-core.js"></script>
 <script src="wallet.js"></script>
 </body>
 </html>
