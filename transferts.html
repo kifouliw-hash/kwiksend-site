@@ -3,103 +3,46 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Transferts – KwikSend</title>
+  <title>KwikSend - Transferts Afrique ↔ Europe</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <header>
-  <div class="container header-row">
+  <div class="container header-container">
     <div class="logo">Kwik<span>Send</span></div>
-    <div class="header-actions">
-      <a class="back" href="portefeuille.html">⬅ Portefeuille</a>
-      <select id="lang" class="lang">
-        <option value="fr">FR</option><option value="en">EN</option><option value="es">ES</option><option value="pt">PT</option>
-      </select>
-    </div>
+    <a href="portefeuille.html" class="cta-nav">⬅ Retour</a>
   </div>
 </header>
 
-<div class="container grid" style="margin-top:16px">
-  <!-- Form -->
-  <div class="card g-6">
-    <h3 style="margin-top:0">Détails du transfert</h3>
-    <div class="field">
-      <label class="label">Direction</label>
-      <select id="dir" class="input">
-        <option value="AE">Afrique → Europe</option>
-        <option value="EA">Europe → Afrique</option>
-      </select>
-    </div>
+<main class="wallet-container">
+  <h2>🌍 Transfert Afrique ↔ Europe</h2>
+  <form onsubmit="simulateAfricaEurope(event)">
+    <label>Direction</label>
+    <select id="direction">
+      <option value="AF_EU">Afrique → Europe</option>
+      <option value="EU_AF">Europe → Afrique</option>
+    </select>
 
-    <div class="field">
-      <label class="label">Canal</label>
-      <select id="channel" class="input">
-        <option value="MOBILE">Mobile Money</option>
-        <option value="IBAN">IBAN</option>
-        <option value="P2P">KwikSend ↔ KwikSend</option>
-      </select>
-    </div>
+    <label>Nom du bénéficiaire</label>
+    <input type="text" id="beneficiary" placeholder="Nom complet" required>
 
-    <div class="field">
-      <label class="label">Bénéficiaire</label>
-      <input id="benef" class="input" list="benef_list" placeholder="Nom / Alias / Compte">
-      <datalist id="benef_list"></datalist>
-      <small style="color:#666">Il sera enregistré pour plus tard.</small>
-    </div>
+    <label>Montant</label>
+    <input type="number" id="amount" placeholder="Montant à envoyer" required>
 
-    <div class="field">
-      <label class="label">Montant</label>
-      <input id="amount" class="input" type="number" placeholder="Montant à envoyer">
-    </div>
+    <label>Méthode</label>
+    <select id="method">
+      <option>IBAN</option>
+      <option>Orange Money</option>
+      <option>Wave</option>
+      <option>MTN</option>
+      <option>Moov</option>
+    </select>
 
-    <div class="field">
-      <label class="label">Pays d’origine / destination</label>
-      <div style="display:flex;gap:8px">
-        <input id="from" class="input" placeholder="From (ex: CI)">
-        <input id="to" class="input" placeholder="To (ex: FR)">
-      </div>
-    </div>
+    <button type="submit">Envoyer</button>
+  </form>
+  <p id="transfer-result"></p>
+</main>
 
-    <div class="field">
-      <label class="label">Référence (optionnel)</label>
-      <input id="ref" class="input" placeholder="Ex: Loyer janvier">
-    </div>
-    <div class="field">
-      <label class="label">Note (optionnel)</label>
-      <textarea id="note" class="input" rows="2" placeholder="Message au bénéficiaire"></textarea>
-    </div>
-
-    <div class="modal-actions">
-      <button id="btn_preview" class="btn ok">Prévisualiser</button>
-    </div>
-  </div>
-
-  <!-- Preview -->
-  <div class="card g-6" id="preview">
-    <h3 style="margin-top:0">Prévisualisation</h3>
-    <div id="pv_body">Entrez les détails à gauche.</div>
-    <div class="modal-actions">
-      <button id="btn_send" class="btn ok" disabled>Confirmer</button>
-    </div>
-  </div>
-</div>
-
-<!-- Modal PIN -->
-<div class="modal-back" id="pin_back">
-  <div class="modal">
-    <div class="title">Confirmer avec PIN</div>
-    <p>Entrez votre code à 4 chiffres pour valider l’envoi.</p>
-    <div class="pin-wrap">
-      <input maxlength="1"><input maxlength="1"><input maxlength="1"><input maxlength="1">
-    </div>
-    <div class="modal-actions">
-      <button class="btn out" id="pin_cancel">Annuler</button>
-      <button class="btn ok" id="pin_ok">Valider</button>
-    </div>
-  </div>
-</div>
-
-<script src="ks-core.js"></script>
-<script src="transfer.js"></script>
+<script src="wallet.js"></script>
 </body>
 </html>
