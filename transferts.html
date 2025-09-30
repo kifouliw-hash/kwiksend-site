@@ -3,97 +3,103 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Transferts Afrique ↔ Europe - KwikSend</title>
+  <title>Transferts – KwikSend</title>
   <link rel="stylesheet" href="style.css">
-  <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-      background: #f9f9f9;
-      color: #333;
-    }
-
-    header {
-      background: linear-gradient(90deg, #ff7a00, #ffcc00);
-      padding: 1rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      color: white;
-    }
-
-    .transfer-container {
-      max-width: 600px;
-      margin: 2rem auto;
-      background: white;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-
-    h1 {
-      color: #ff7a00;
-      margin-bottom: 1rem;
-    }
-
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    select, input {
-      padding: 0.8rem;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      font-size: 1rem;
-    }
-
-    button {
-      background: linear-gradient(90deg, #ff7a00, #ffcc00);
-      border: none;
-      color: white;
-      font-weight: 600;
-      font-size: 1rem;
-      padding: 0.8rem;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-
-    button:hover {
-      transform: translateY(-2px);
-    }
-  </style>
 </head>
 <body>
-
-  <header>
+<header>
+  <div class="container header-row">
     <div class="logo">Kwik<span>Send</span></div>
-    <a href="index.html">⬅ Retour</a>
-  </header>
-
-  <div class="transfer-container">
-    <h1>✈️ Transfert Afrique ↔ Europe</h1>
-    <p>Sélectionnez la direction et entrez les détails de votre transfert :</p>
-    <form onsubmit="simulateTransfer(event)">
-      <select required>
-        <option value="">Choisir la direction</option>
-        <option value="afrique-europe">🌍 Afrique → Europe (IBAN)</option>
-        <option value="europe-afrique">🇪🇺 Europe → Afrique (Mobile Money)</option>
+    <div class="header-actions">
+      <a class="back" href="portefeuille.html">⬅ Portefeuille</a>
+      <select id="lang" class="lang">
+        <option value="fr">FR</option><option value="en">EN</option><option value="es">ES</option><option value="pt">PT</option>
       </select>
-      <input type="text" placeholder="Nom du bénéficiaire" required>
-      <input type="number" placeholder="Montant à envoyer" required>
-      <input type="text" placeholder="IBAN ou numéro Mobile Money" required>
-      <button type="submit">Envoyer</button>
-    </form>
+    </div>
+  </div>
+</header>
+
+<div class="container grid" style="margin-top:16px">
+  <!-- Form -->
+  <div class="card g-6">
+    <h3 style="margin-top:0">Détails du transfert</h3>
+    <div class="field">
+      <label class="label">Direction</label>
+      <select id="dir" class="input">
+        <option value="AE">Afrique → Europe</option>
+        <option value="EA">Europe → Afrique</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label class="label">Canal</label>
+      <select id="channel" class="input">
+        <option value="MOBILE">Mobile Money</option>
+        <option value="IBAN">IBAN</option>
+        <option value="P2P">KwikSend ↔ KwikSend</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label class="label">Bénéficiaire</label>
+      <input id="benef" class="input" list="benef_list" placeholder="Nom / Alias / Compte">
+      <datalist id="benef_list"></datalist>
+      <small style="color:#666">Il sera enregistré pour plus tard.</small>
+    </div>
+
+    <div class="field">
+      <label class="label">Montant</label>
+      <input id="amount" class="input" type="number" placeholder="Montant à envoyer">
+    </div>
+
+    <div class="field">
+      <label class="label">Pays d’origine / destination</label>
+      <div style="display:flex;gap:8px">
+        <input id="from" class="input" placeholder="From (ex: CI)">
+        <input id="to" class="input" placeholder="To (ex: FR)">
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label">Référence (optionnel)</label>
+      <input id="ref" class="input" placeholder="Ex: Loyer janvier">
+    </div>
+    <div class="field">
+      <label class="label">Note (optionnel)</label>
+      <textarea id="note" class="input" rows="2" placeholder="Message au bénéficiaire"></textarea>
+    </div>
+
+    <div class="modal-actions">
+      <button id="btn_preview" class="btn ok">Prévisualiser</button>
+    </div>
   </div>
 
-  <script>
-    function simulateTransfer(e) {
-      e.preventDefault();
-      alert("✅ Simulation : Transfert effectué avec succès !");
-      window.location.href = "portefeuille.html";
-    }
-  </script>
+  <!-- Preview -->
+  <div class="card g-6" id="preview">
+    <h3 style="margin-top:0">Prévisualisation</h3>
+    <div id="pv_body">Entrez les détails à gauche.</div>
+    <div class="modal-actions">
+      <button id="btn_send" class="btn ok" disabled>Confirmer</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal PIN -->
+<div class="modal-back" id="pin_back">
+  <div class="modal">
+    <div class="title">Confirmer avec PIN</div>
+    <p>Entrez votre code à 4 chiffres pour valider l’envoi.</p>
+    <div class="pin-wrap">
+      <input maxlength="1"><input maxlength="1"><input maxlength="1"><input maxlength="1">
+    </div>
+    <div class="modal-actions">
+      <button class="btn out" id="pin_cancel">Annuler</button>
+      <button class="btn ok" id="pin_ok">Valider</button>
+    </div>
+  </div>
+</div>
+
+<script src="ks-core.js"></script>
+<script src="transfer.js"></script>
 </body>
 </html>
