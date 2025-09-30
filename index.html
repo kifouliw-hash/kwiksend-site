@@ -6,7 +6,6 @@
   <title>KwikSend - Transferts rapides Afrique ↔ Europe</title>
   <link rel="stylesheet" href="style.css">
 </head>
-  <script src="ks-core.js"></script>
 <body>
 <!-- 🧭 Header -->
 <header>
@@ -15,28 +14,29 @@
 
     <!-- 🍔 Burger menu mobile -->
     <div class="burger" onclick="toggleMenu()">
-      <span></span>
-      <span></span>
-      <span></span>
+      <span></span><span></span><span></span>
     </div>
 
     <nav>
       <ul class="nav-links" id="nav-menu">
         <li><a href="#accueil" class="active" data-translate="menu_home">Accueil</a></li>
-<li><a href="#fonctionnalites" data-translate="menu_features">Fonctionnalités</a></li>
-<li><a href="#avantages" data-translate="menu_advantages">Avantages</a></li>
-<li><a href="#apropos" data-translate="menu_about">À propos</a></li>
-<li><a href="connexion.html" class="cta-nav" data-translate="menu_login">Connexion</a></li>
+        <li><a href="#fonctionnalites" data-translate="menu_features">Fonctionnalités</a></li>
+        <li><a href="#avantages" data-translate="menu_advantages">Avantages</a></li>
+        <li><a href="#apropos" data-translate="menu_about">À propos</a></li>
+        <li><a href="connexion.html" class="cta-nav" data-translate="menu_login">Connexion</a></li>
       </ul>
     </nav>
 
-    <!-- 🌍 Sélecteur de langue -->
-    <select id="langSwitcher">
-      <option value="fr">🇫🇷 FR</option>
-      <option value="en">🇬🇧 EN</option>
-      <option value="es">🇪🇸 ES</option>
-      <option value="pt">🇵🇹 PT</option>
-    </select>
+    <!-- 🌍 Sélecteur de langue + Dark Mode -->
+    <div class="header-actions">
+      <select id="langSwitcher">
+        <option value="fr">🇫🇷 FR</option>
+        <option value="en">🇬🇧 EN</option>
+        <option value="es">🇪🇸 ES</option>
+        <option value="pt">🇵🇹 PT</option>
+      </select>
+      <button id="darkToggle">🌙</button>
+    </div>
   </div>
 </header>
 
@@ -70,7 +70,7 @@
 
     <div class="card clickable" onclick="window.location.href='mobile.html'">
       <h3 data-translate="feature_mobile">🏦 Mobile Money & IBAN</h3>
-      <p data-translate="feature_mobile_desc">Alimentez ou retirez facilement via Orange Money, Wave ou compte bancaire européen.</p>
+      <p data-translate="feature_mobile_desc">Rechargez ou retirez via Orange Money, Wave, MTN, Moov ou compte bancaire européen.</p>
     </div>
   </div>
 </section>
@@ -105,6 +105,22 @@
     menu.classList.toggle('open');
     burger.classList.toggle('active');
   }
+
+  // 🌙 Dark Mode
+  const darkToggle = document.getElementById('darkToggle');
+  darkToggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark');
+    darkToggle.textContent = document.body.classList.contains('dark') ? "☀️" : "🌙";
+    localStorage.setItem("theme", document.body.classList.contains('dark') ? "dark" : "light");
+  });
+
+  // Charger le thème sauvegardé
+  window.addEventListener("load", () => {
+    if (localStorage.getItem("theme") === "dark") {
+      document.body.classList.add("dark");
+      darkToggle.textContent = "☀️";
+    }
+  });
 </script>
 
 <!-- 🌍 Script Traduction -->
