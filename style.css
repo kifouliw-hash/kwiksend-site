@@ -186,3 +186,38 @@ footer {
     display: flex;
   }
 }
+/* 💳 Carte virtuelle */
+.virtual-card {
+  width: 320px;
+  height: 200px;
+  background: linear-gradient(135deg, var(--orange), var(--yellow));
+  border-radius: 20px;
+  padding: 1.5rem;
+  color: white;
+  font-family: 'Segoe UI', sans-serif;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+  margin: auto;
+  position: relative;
+}
+
+.card-chip {
+  width: 50px;
+  height: 35px;
+  background: gold;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+}
+
+.card-number {
+  font-size: 1.4rem;
+  letter-spacing: 3px;
+  margin-bottom: 1rem;
+}
+
+.card-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
