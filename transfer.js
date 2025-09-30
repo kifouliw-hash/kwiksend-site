@@ -1,6 +1,6 @@
 <script>
 (() => {
-  const {read, write, fmt, flag, quote, toast, getPinHash, setPinHash, hash, lang} = KS;
+  const {read, write, fmt, flag, quote, toast, getPinHash, setPinHash, hash, lang, isValidIBAN} = KS;
 
   /* Langue persistante */
   const langSel = document.getElementById('lang');
@@ -28,8 +28,10 @@
   if(q.get('dir')) dir.value = q.get('dir');
   if(q.get('channel')) channel.value = q.get('channel');
   if(q.get('amount')) amount.value = q.get('amount');
+  if(q.get('to')) to.value = q.get('to');
+  if(q.get('benef')) benef.value = q.get('benef');
 
-  /* Benef list */
+  /* Contacts list for datalist */
   const ben = read('ks_beneficiaries', []);
   const loadBenef = () => {
     benefList.innerHTML='';
@@ -41,34 +43,30 @@
   };
   loadBenef();
 
-  /* Validate simple */
-  const isIBAN = s => /\b[A-Z]{2}\d{2}[A-Z0-9 ]{10,30}\b/.test(s.toUpperCase());
-  const isMobile = s => /^[0-9 ]{6,15}$/.test(s);
-
   const parseBenef = (txt) => {
-    // attend: "Nom (alias) – compte" ou saisie libre
     const m = txt.match(/^(.*?)\s*\((.*?)\)\s*–\s*(.+)$/);
     if(m) return {name:m[1].trim(), alias:m[2].trim(), account:m[3].trim()};
     return {name:txt.trim(), alias:txt.trim().toLowerCase().replace(/\s+/g,''), account:txt.trim()};
   };
 
-  /* Preview */
   const renderPreview = ()=>{
     const A = Number(amount.value||0);
     if(!A){ pv.textContent='Entrez un montant'; btnSend.disabled=true; return; }
     if(!benef.value){ pv.textContent='Sélectionnez ou saisissez un bénéficiaire'; btnSend.disabled=true; return; }
     if(!from.value || !to.value){ pv.textContent='Renseignez les pays (ex: CI → FR)'; btnSend.disabled=true; return; }
 
-    const q = quote({amount:A, dir:dir.value, channel:channel.value});
     const b = parseBenef(benef.value);
+    if(channel.value==='IBAN' && !isValidIBAN(b.account)){ pv.textContent='IBAN invalide (checksum failed)'; btnSend.disabled=true; return; }
+
+    const qv = quote({amount:A, dir:dir.value, channel:channel.value});
     pv.innerHTML = `
       <div><b>Direction:</b> ${dir.value==='AE'?'Afrique → Europe':'Europe → Afrique'}</div>
       <div><b>Canal:</b> ${channel.value}</div>
-      <div><b>Montant envoyé:</b> ${fmt(A, q.sendCurrency)}</div>
-      <div><b>Frais:</b> ${fmt(q.fee, q.sendCurrency)}</div>
-      <div><b>Taux:</b> ${q.sendCurrency==='FCFA' ? '1 FCFA → '+q.rate.toFixed(5)+' €' : '1 € → '+q.rate.toFixed(0)+' FCFA'}</div>
-      <div><b>Montant reçu:</b> ${fmt(q.received, q.recvCurrency)}</div>
-      <div><b>Arrivée estimée:</b> ${q.eta}</div>
+      <div><b>Montant envoyé:</b> ${fmt(A, qv.sendCurrency)}</div>
+      <div><b>Frais:</b> ${fmt(qv.fee, qv.sendCurrency)}</div>
+      <div><b>Taux:</b> ${qv.sendCurrency==='FCFA' ? '1 FCFA → '+qv.rate.toFixed(5)+' €' : '1 € → '+qv.rate.toFixed(0)+' FCFA'}</div>
+      <div><b>Montant reçu:</b> ${fmt(qv.received, qv.recvCurrency)}</div>
+      <div><b>Arrivée estimée:</b> ${qv.eta}</div>
       <hr>
       <div><b>Bénéficiaire:</b> ${b.name} (${b.alias})</div>
       <div><b>Compte:</b> ${b.account}</div>
@@ -112,46 +110,40 @@
     }
   });
 
-  /* Proceed (save tx + update wallet) */
   const proceed = ()=>{
     const A = Number(amount.value);
-    const q = quote({amount:A, dir:dir.value, channel:channel.value});
+    const qv = quote({amount:A, dir:dir.value, channel:channel.value});
     const b = parseBenef(benef.value);
 
-    // enregistrer bénéficiaire s'il n'existe pas
+    // enregistrer contact si nouveau
     const list = read('ks_beneficiaries', []);
     if(!list.find(x=>x.alias===b.alias || x.account===b.account)){
       list.push({name:b.name, alias:b.alias, country:to.value.toUpperCase(), channel:channel.value, account:b.account});
       write('ks_beneficiaries', list);
     }
 
-    // solde
     const wallet = read('ks_wallet', {balanceCFA:20000,balanceEUR:30});
     if(dir.value==='AE'){
-      // FCFA -> EUR : on débite CFA
       wallet.balanceCFA = Math.max(0, wallet.balanceCFA - A);
       write('ks_wallet', wallet);
     }else{
-      // EUR -> FCFA : on débite EUR ?
-      // (démo : on crédite le CFA reçu)
-      wallet.balanceCFA += q.received;
+      wallet.balanceCFA += qv.received;
       write('ks_wallet', wallet);
     }
 
-    // tx
     const tx = read('ks_tx', []);
     const id = (tx.at(-1)?.id || 0) + 1;
     tx.push({
       id, dateISO:new Date().toISOString(),
       type: dir.value==='AE' ? 'Send' : 'Withdraw',
-      amountCFA: dir.value==='AE' ? -A : q.received,
+      amountCFA: dir.value==='AE' ? -A : qv.received,
       label: `${b.name} – ${channel.value}`,
       status:'Completed', icon: dir.value==='AE' ? '📤' : '🏦',
       ref: ref.value || (channel.value==='IBAN'?'IB-':'TR-') + String(Math.random()).slice(2,6),
       channel: channel.value,
       countryFrom: from.value.toUpperCase(), countryTo: to.value.toUpperCase(),
-      feesCFA: dir.value==='AE' ? Math.round(q.fee) : 0,
-      rate: q.rate, note: note.value || ''
+      feesCFA: dir.value==='AE' ? Math.round(qv.fee) : 0,
+      rate: qv.rate, note: note.value || ''
     });
     write('ks_tx', tx);
 
@@ -160,7 +152,6 @@
     setTimeout(()=> location.href = 'portefeuille.html?lang='+KS.lang, 600);
   };
 
-  // initial render
   renderPreview();
 })();
 </script>
