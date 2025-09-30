@@ -1,121 +1,58 @@
+// Exemple de dictionnaire de traductions
 const translations = {
   fr: {
-    menu_home: "Accueil",
-    menu_features: "Fonctionnalités",
-    menu_advantages: "Avantages",
-    menu_about: "À propos",
-    menu_login: "Connexion",
     headline: "Votre argent partout tout de suite 🌍",
     subtitle: "La nouvelle façon d’envoyer et de recevoir de l’argent entre l’Afrique et l’Europe.",
-    cta_join: "Rejoindre la liste d’attente",
+    join: "Rejoindre la liste d’attente",
     features_title: "Ce que vous pouvez faire avec KwikSend",
-    feature_wallet: "💰 Portefeuille numérique",
-    feature_wallet_desc: "Gérez votre argent facilement en FCFA et en Euro, où que vous soyez.",
-    feature_transfer: "🌐 Transferts Afrique ↔ Europe",
-    feature_transfer_desc: "Envoyez ou recevez instantanément entre l’Afrique et l’Europe, sans tracas.",
-    feature_p2p: "👥 Transferts KwikSend ↔ KwikSend",
-    feature_p2p_desc: "Transférez gratuitement ou à petit coût entre utilisateurs KwikSend.",
-    feature_mobile: "🏦 Mobile Money & IBAN",
-    feature_mobile_desc: "Alimentez ou retirez facilement via Orange Money, Wave ou compte bancaire européen.",
-    advantages_title: "Pourquoi choisir KwikSend ?",
-    adv_speed: "⚡ Rapidité : transferts instantanés.",
-    adv_security: "🔒 Sécurité : transactions chiffrées et protégées.",
-    adv_access: "🌍 Accessibilité : utilisable en Afrique et en Europe.",
-    adv_flex: "💳 Flexibilité : multiples moyens de retrait et de paiement.",
-    about_title: "À propos",
-    about_text: "KwikSend est une solution moderne de transfert d’argent pensée pour connecter l’Afrique et l’Europe.",
-    footer: "© 2025 KwikSend. Tous droits réservés."
+    wallet: "💰 Portefeuille numérique",
+    wallet_text: "Gérez votre argent facilement en FCFA et en Euro, où que vous soyez."
   },
   en: {
-    menu_home: "Home",
-    menu_features: "Features",
-    menu_advantages: "Advantages",
-    menu_about: "About",
-    menu_login: "Login",
     headline: "Your money, everywhere, instantly 🌍",
     subtitle: "The new way to send and receive money between Africa and Europe.",
-    cta_join: "Join the waiting list",
+    join: "Join the waiting list",
     features_title: "What you can do with KwikSend",
-    feature_wallet: "💰 Digital Wallet",
-    feature_wallet_desc: "Easily manage your money in CFA and Euro, wherever you are.",
-    feature_transfer: "🌐 Africa ↔ Europe Transfers",
-    feature_transfer_desc: "Send or receive instantly between Africa and Europe, hassle-free.",
-    feature_p2p: "👥 KwikSend ↔ KwikSend Transfers",
-    feature_p2p_desc: "Transfer for free or at low cost between KwikSend users.",
-    feature_mobile: "🏦 Mobile Money & IBAN",
-    feature_mobile_desc: "Easily fund or withdraw via Orange Money, Wave, or European bank accounts.",
-    advantages_title: "Why choose KwikSend?",
-    adv_speed: "⚡ Speed: Instant transfers.",
-    adv_security: "🔒 Security: Encrypted and protected transactions.",
-    adv_access: "🌍 Accessibility: Usable in Africa and Europe.",
-    adv_flex: "💳 Flexibility: Multiple withdrawal and payment options.",
-    about_title: "About",
-    about_text: "KwikSend is a modern money transfer solution designed to connect Africa and Europe.",
-    footer: "© 2025 KwikSend. All rights reserved."
+    wallet: "💰 Digital Wallet",
+    wallet_text: "Easily manage your money in CFA and Euro, wherever you are."
   },
   es: {
-    menu_home: "Inicio",
-    menu_features: "Funciones",
-    menu_advantages: "Ventajas",
-    menu_about: "Acerca de",
-    menu_login: "Conexión",
     headline: "Tu dinero, en todas partes, al instante 🌍",
     subtitle: "La nueva forma de enviar y recibir dinero entre África y Europa.",
-    cta_join: "Unirse a la lista de espera",
+    join: "Únete a la lista de espera",
     features_title: "Lo que puedes hacer con KwikSend",
-    feature_wallet: "💰 Monedero digital",
-    feature_wallet_desc: "Administra tu dinero fácilmente en CFA y Euro, dondequiera que estés.",
-    feature_transfer: "🌐 Transferencias África ↔ Europa",
-    feature_transfer_desc: "Envía o recibe instantáneamente entre África y Europa, sin complicaciones.",
-    feature_p2p: "👥 Transferencias KwikSend ↔ KwikSend",
-    feature_p2p_desc: "Transfiere gratis o a bajo costo entre usuarios de KwikSend.",
-    feature_mobile: "🏦 Dinero móvil & IBAN",
-    feature_mobile_desc: "Recarga o retira fácilmente a través de Orange Money, Wave o cuenta bancaria europea.",
-    advantages_title: "¿Por qué elegir KwikSend?",
-    adv_speed: "⚡ Rapidez: transferencias instantáneas.",
-    adv_security: "🔒 Seguridad: transacciones cifradas y protegidas.",
-    adv_access: "🌍 Accesibilidad: utilizable en África y Europa.",
-    adv_flex: "💳 Flexibilidad: múltiples métodos de retiro y pago.",
-    about_title: "Acerca de",
-    about_text: "KwikSend es una solución moderna de transferencia de dinero pensada para conectar África y Europa.",
-    footer: "© 2025 KwikSend. Todos los derechos reservados."
+    wallet: "💰 Billetera digital",
+    wallet_text: "Administra fácilmente tu dinero en CFA y Euro, dondequiera que estés."
   },
   pt: {
-    menu_home: "Início",
-    menu_features: "Funcionalidades",
-    menu_advantages: "Vantagens",
-    menu_about: "Sobre",
-    menu_login: "Conexão",
     headline: "Seu dinheiro, em qualquer lugar, instantaneamente 🌍",
-    subtitle: "A nova forma de enviar e receber dinheiro entre a África e a Europa.",
-    cta_join: "Junte-se à lista de espera",
-    features_title: "O que você pode fazer com KwikSend",
-    feature_wallet: "💰 Carteira digital",
-    feature_wallet_desc: "Gerencie seu dinheiro facilmente em CFA e Euro, onde quer que esteja.",
-    feature_transfer: "🌐 Transferências África ↔ Europa",
-    feature_transfer_desc: "Envie ou receba instantaneamente entre a África e a Europa, sem complicações.",
-    feature_p2p: "👥 Transferências KwikSend ↔ KwikSend",
-    feature_p2p_desc: "Transfira gratuitamente ou a baixo custo entre usuários do KwikSend.",
-    feature_mobile: "🏦 Dinheiro Móvel & IBAN",
-    feature_mobile_desc: "Carregue ou retire facilmente via Orange Money, Wave ou conta bancária europeia.",
-    advantages_title: "Por que escolher KwikSend?",
-    adv_speed: "⚡ Velocidade: transferências instantâneas.",
-    adv_security: "🔒 Segurança: transações criptografadas e protegidas.",
-    adv_access: "🌍 Acessibilidade: utilizável na África e na Europa.",
-    adv_flex: "💳 Flexibilidade: múltiplos métodos de retirada e pagamento.",
-    about_title: "Sobre",
-    about_text: "KwikSend é uma solução moderna de transferência de dinheiro projetada para conectar a África e a Europa.",
-    footer: "© 2025 KwikSend. Todos os direitos reservados."
+    subtitle: "A nova forma de enviar e receber dinheiro entre África e Europa.",
+    join: "Entrar na lista de espera",
+    features_title: "O que você pode fazer com o KwikSend",
+    wallet: "💰 Carteira Digital",
+    wallet_text: "Gerencie facilmente seu dinheiro em CFA e Euro, onde quer que esteja."
   }
 };
 
-// === Gestion du changement de langue ===
-document.getElementById("langSwitcher").addEventListener("change", function () {
-  const lang = this.value;
-  document.querySelectorAll("[data-translate]").forEach(el => {
+// Fonction pour appliquer la traduction
+function applyTranslations(lang) {
+  const elements = document.querySelectorAll("[data-translate]");
+  elements.forEach(el => {
     const key = el.getAttribute("data-translate");
-    if (translations[lang][key]) {
-      el.innerText = translations[lang][key];
+    if (translations[lang] && translations[lang][key]) {
+      el.textContent = translations[lang][key];
     }
   });
+}
+
+// Récupérer la langue sauvegardée ou défaut FR
+let currentLang = localStorage.getItem("lang") || "fr";
+applyTranslations(currentLang);
+document.getElementById("langSwitcher").value = currentLang;
+
+// Quand on change la langue
+document.getElementById("langSwitcher").addEventListener("change", (e) => {
+  currentLang = e.target.value;
+  localStorage.setItem("lang", currentLang); // ✅ sauvegarde dans localStorage
+  applyTranslations(currentLang);
 });
