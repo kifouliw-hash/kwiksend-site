@@ -1,274 +1,91 @@
-/* ================================
- 🌅 Variables Globales
-================================ */
-:root {
-  --orange: #ff7a00;
-  --yellow: #ffcc00;
-  --green-cta: #0a8f2f;
-  --text-dark: #1a1a1a;
-  --text-light: #ffffff;
-  --bg-light: #fdf8f3;
+/* ======= Base ======= */
+:root{
+  --o:#ff7a00; --y:#ffcc00; --g:#0a7f38;
+  --bg:#f6f1e9; --card:#fff; --text:#222; --muted:#666;
+  --ok:#1f9d55; --warn:#ff9f1a; --err:#e03131;
+  --shadow:0 8px 24px rgba(0,0,0,.08);
 }
 
-/* ================================
- 📝 Base
-================================ */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;color:var(--text);background:var(--bg)}
+a{text-decoration:none;color:inherit}
+button{cursor:pointer;border:none}
+.container{max-width:1080px;margin:0 auto;padding:16px}
+
+/* ======= Header ======= */
+header{
+  background:linear-gradient(90deg,var(--o),var(--y));
+  color:#fff; position:sticky; top:0; z-index:10;
+  box-shadow:0 4px 24px rgba(0,0,0,.08);
 }
+.header-row{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.logo{font-weight:800;font-size:20px;letter-spacing:.2px}
+.logo span{color:#faffbc}
+.header-actions{display:flex;align-items:center;gap:8px}
+.lang{padding:6px 8px;border-radius:8px;border:none}
+.back{color:#fff;opacity:.9}
 
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #fff;
-  color: var(--text-dark);
-  line-height: 1.6;
+/* ======= Hero / CTA ======= */
+.hero{
+  background:linear-gradient(180deg,var(--o),var(--y));
+  color:#fff;text-align:center;padding:56px 16px;
 }
+.hero h1{font-size:38px;margin:0 0 12px}
+.hero p{opacity:.95;margin:0 0 22px}
+.cta{background:var(--g);color:#fff;padding:12px 18px;border-radius:12px;box-shadow:var(--shadow)}
+.cta:active{transform:translateY(1px)}
 
-.container {
-  width: 90%;
-  max-width: 1200px;
-  margin: 0 auto;
-}
+/* ======= Cards ======= */
+.card{background:var(--card);border-radius:14px;box-shadow:var(--shadow);padding:16px}
+.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
+.g-4{grid-column:span 4}
+.g-6{grid-column:span 6}
+@media(max-width:900px){.g-6,.g-4{grid-column:span 12}}
 
-/* ================================
- 🧭 Header
-================================ */
-header {
-  background: linear-gradient(90deg, var(--orange), var(--yellow));
-  padding: 0.8rem 0;
-  position: relative;
-}
+/* ======= Wallet widgets ======= */
+.balance{text-align:center}
+.balance h2{margin:0;color:var(--o);font-size:36px}
+.balance small{color:var(--muted)}
+.actions{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:16px}
+@media(max-width:700px){.actions{grid-template-columns:repeat(2,1fr)}}
+.action{background:#faf8f3;border-radius:12px;padding:14px;text-align:center;transition:.15s}
+.action:hover{transform:translateY(-2px)}
+.action h3{margin:6px 0 0;color:var(--o);font-size:16px}
 
-.header-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+/* ======= Inline simulator ======= */
+.simulator{display:flex;gap:10px;flex-wrap:wrap;align-items:end}
+.simulator .field{flex:1;min-width:160px}
+.label{display:block;font-size:13px;color:var(--muted);margin-bottom:6px}
+.input,select{width:100%;padding:10px 12px;border-radius:10px;border:1px solid #e7e0d5;background:#fff}
+.result{background:#fef8eb;border-radius:12px;padding:12px}
+.result b{color:var(--o)}
+.inline-go{background:var(--g);color:#fff;border-radius:10px;padding:10px 14px}
 
-.logo {
-  font-size: 1.4rem;
-  font-weight: bold;
-  color: white;
-}
+/* ======= Filters & History ======= */
+.filters{display:flex;flex-wrap:wrap;gap:10px;align-items:end}
+.chip{border:1px solid #e7e0d5;border-radius:50px;padding:8px 12px;background:#fff}
+.search{flex:1;min-width:160px}
+.table{width:100%;border-collapse:collapse}
+.table th,.table td{padding:12px;border-bottom:1px solid #eee;text-align:left}
+.table th{background:#fffaf2;color:#222}
+.badge{padding:4px 10px;border-radius:999px;font-size:12px;font-weight:600}
+.badge.ok{background:#e8fff1;color:#057a36}
+.badge.pending{background:#fff8e6;color:#8a5b00}
+.badge.err{background:#ffe8e8;color:#7d1717}
+.totals{display:flex;gap:16px;margin:8px 0;color:#333}
+.totals .box{background:#fff;border-radius:10px;padding:8px 12px}
 
-.logo span {
-  color: #ffd700;
-}
+/* ======= Modal / PIN ======= */
+.modal-back{position:fixed;inset:0;background:rgba(0,0,0,.25);display:none;align-items:center;justify-content:center;z-index:20}
+.modal{background:#fff;border-radius:14px;box-shadow:var(--shadow);max-width:560px;width:96%;padding:16px}
+.modal .title{font-weight:800;font-size:18px;margin:0 0 10px}
+.pin-wrap{display:flex;gap:8px;justify-content:center}
+.pin-wrap input{width:40px;height:48px;text-align:center;font-size:20px;border:1px solid #ddd;border-radius:10px}
+.modal-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:14px}
+.btn{padding:10px 14px;border-radius:10px}
+.btn.ok{background:var(--g);color:#fff}
+.btn.out{background:#eee}
 
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 1.5rem;
-}
-
-.nav-links li a {
-  color: white;
-  text-decoration: none;
-  font-weight: 500;
-  transition: opacity 0.2s ease;
-}
-
-.nav-links li a:hover,
-.nav-links li a.active {
-  opacity: 0.8;
-}
-
-.cta-nav {
-  background: #ffffff;
-  color: var(--orange) !important;
-  padding: 0.4rem 0.8rem;
-  border-radius: 20px;
-  font-weight: 600;
-  text-decoration: none;
-  display: inline-block;
-  text-align: center;
-  line-height: normal;
-}
-
-/* 🍔 Burger */
-.burger {
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
-  gap: 5px;
-}
-
-.burger span {
-  background: white;
-  height: 3px;
-  width: 25px;
-  border-radius: 5px;
-  transition: all 0.3s ease;
-}
-
-.burger.active span:nth-child(1) {
-  transform: rotate(45deg) translateY(8px);
-}
-
-.burger.active span:nth-child(2) {
-  opacity: 0;
-}
-
-.burger.active span:nth-child(3) {
-  transform: rotate(-45deg) translateY(-8px);
-}
-
-/* ================================
- 🦸 Hero
-================================ */
-.hero {
-  background: linear-gradient(180deg, var(--orange), var(--yellow));
-  color: var(--text-light);
-  text-align: center;
-  padding: 6rem 1rem;
-}
-
-.hero h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-}
-
-.hero p {
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
-}
-
-.cta {
-  display: inline-block;
-  background: var(--green-cta);
-  color: white;
-  padding: 0.8rem 1.6rem;
-  text-decoration: none;
-  border-radius: 30px;
-  font-weight: 600;
-  transition: background 0.3s ease, transform 0.2s ease;
-}
-
-.cta:hover {
-  background: #087326;
-  transform: translateY(-2px);
-}
-
-/* ================================
- ✨ Fonctionnalités
-================================ */
-.features {
-  padding: 4rem 1rem;
-  background: var(--bg-light);
-  text-align: center;
-}
-
-.features h2 {
-  margin-bottom: 2rem;
-  font-size: 2rem;
-  color: var(--orange);
-}
-
-.features-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.5rem;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.card {
-  background: white;
-  border-radius: 15px;
-  padding: 1.5rem;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-  transition: transform 0.2s ease;
-}
-
-.card.clickable {
-  cursor: pointer;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-}
-
-.card h3 {
-  color: var(--orange);
-  margin-bottom: 0.5rem;
-}
-
-/* ================================
- 🌍 Avantages
-================================ */
-.advantages {
-  background: linear-gradient(180deg, var(--orange), var(--yellow));
-  color: white;
-  padding: 3rem 1rem;
-  text-align: center;
-}
-
-.advantages h2 {
-  margin-bottom: 1.5rem;
-}
-
-.advantages ul {
-  list-style: none;
-}
-
-.advantages li {
-  margin: 0.5rem 0;
-}
-
-/* ================================
- 📌 Footer
-================================ */
-footer {
-  background: var(--orange);
-  color: white;
-  text-align: center;
-  padding: 1rem 0;
-  font-size: 0.9rem;
-}
-
-/* ================================
- 📱 Responsive
-================================ */
-@media (max-width: 768px) {
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    background: white;
-    position: absolute;
-    top: 60px;
-    right: 10px;
-    width: 220px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    overflow: hidden;
-    transform: translateY(-20px);
-    opacity: 0;
-    transition: all 0.3s ease;
-  }
-
-  .nav-links.open {
-    display: flex;
-    transform: translateY(0);
-    opacity: 1;
-  }
-
-  .nav-links li a {
-    color: var(--orange);
-    padding: 1rem;
-    display: block;
-  }
-
-  .burger {
-    display: flex;
-  }
-
-  .hero h1 {
-    font-size: 1.8rem;
-  }
-
-  .features-grid {
-    grid-template-columns: 1fr;
-  }
-}
+/* ======= Toast ======= */
+.toast{position:fixed;right:16px;bottom:16px;z-index:30;display:flex;flex-direction:column;gap:8px}
+.toast .t{background:#222;color:#fff;padding:10px 14px;border-radius:12px;box-shadow:var(--shadow)}
